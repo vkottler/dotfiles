@@ -31,6 +31,7 @@ map <leader>l :set list!<CR>
 map <leader>p :tabp<CR>
 map <leader>n :tabn<CR>
 map <leader>t :tab split +Explore<CR>
+map <leader>T :Explore<CR>
 
 " Tab Character Spacing
 set tabstop=4
@@ -38,6 +39,9 @@ set shiftwidth=4
 
 " Quick Insertion
 nnoremap <Space> i_<Esc>r
+
+" HTML autocomplete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
