@@ -24,15 +24,12 @@ set smartcase
 set showmatch
 set hlsearch
 
-" Highlighting
-highlight ExtraWhitespace ctermbg=red guibg=red
-
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
 
 " Show trailing whitespace and spaces for tabs
-map <leader>L :match ExtraWhitespace /\s\+$\| \+\ze\t/<CR>
+map <leader>L /s/+$<CR>
 
 " Navigating Tabs
 map <leader>p :tabp<CR>
