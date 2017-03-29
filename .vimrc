@@ -49,6 +49,9 @@ nnoremap <Space> i_<Esc>r
 
 " HTML autocomplete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+" Status Line
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
