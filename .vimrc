@@ -29,7 +29,7 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
 
 " Show trailing whitespace and spaces for tabs
-map <leader>L /s/+$<CR>
+map <leader>L /\s\+$<CR>
 
 " Navigating Tabs
 map <leader>p :tabp<CR>
