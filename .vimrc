@@ -11,6 +11,7 @@ set nocompatible
 
 " Turn on syntax highlighting
 syntax on
+set showmode
 
 " Show line numbers
 set number
@@ -23,6 +24,11 @@ set ignorecase
 set smartcase
 set showmatch
 set hlsearch
+set incsearch
+
+" Line wrapping
+set wrap
+set linebreak
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
@@ -48,7 +54,12 @@ nnoremap <Space> i_<Esc>r
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 " Status Line
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set laststatus=2                               " always show status line
+set statusline=%<%f\                           " Filename
+set statusline+=%w%h%m%r                       " Options
+set statusline+=\ [%{&ff}/%Y]                  " filetype
+set statusline+=\ [%{split(getcwd(),'/')[-1]}] " current dir
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
