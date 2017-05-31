@@ -59,6 +59,8 @@ git clone https://github.com/vkottler/dotfiles.git $HOME_STRING/dotfiles
 ###############################################################################
 #                             Clone Git Repositories                          #
 ###############################################################################
+git config --global user.email "vkottler@wisc.edu"
+git config --global user.name "vkottler"
 GITHUB_URL="https://github.com"
 REPOS_TO_CLONE=(\
 "badgerloop-software/st32.git" \
