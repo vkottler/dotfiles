@@ -5,6 +5,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cls='clear && ls'
+alias jlink='JLinkExe'
 
 # git editor settings
 export VISUAL=vim
