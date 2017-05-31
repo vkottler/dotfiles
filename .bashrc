@@ -1,4 +1,3 @@
-# .bashrc
 
 # aliases
 alias rm='rm -i'
