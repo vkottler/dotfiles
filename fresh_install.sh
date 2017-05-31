@@ -9,13 +9,32 @@ REPO_DIR=$(echo $HOME_STRING/Documents/gitRepos)
 
 
 ###############################################################################
+#                                 Add Key Servers                             #
+###############################################################################
+
+# Spotify
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+###############################################################################
+
+
+###############################################################################
 #                               Install New Software                          #
 ###############################################################################
-INSTALL_LIST="git vim subversion gcc-arm-none-eabi"
+INSTALL_LIST="git vim subversion gcc-arm-none-eabi spotify-client"
 echo "Updating & Upgrading . . ."
 sudo apt-get update && sudo apt-get upgrade -y
 echo "Installing $INSTALL_LIST"
-sudo apt-get install $INSTALL_LIST
+sudo apt-get install $INSTALL_LIST -y
+
+# Install Chrome
+sudo apt-get install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+if [ $? -ne 0 ] then
+sudo apt-get install -f -y
+fi
+rm google-chrome*.deb
 ###############################################################################
 
 
@@ -32,7 +51,7 @@ mkdir -p $DIRS_TO_MAKE
 #                               Update Dot Files                              #
 ###############################################################################
 git clone https://github.com/vkottler/dotfiles.git $HOME_STRING/dotfiles
-~/dotfiles/UpdateVimLocal.sh
+~/dotfiles/updateVimLocal.sh
 ~/dotfiles/appendBashrc.sh
 ###############################################################################
 
