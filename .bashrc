@@ -1,4 +1,7 @@
 
+###############################################################################
+#                 Settings from Vaughn's .bashrc on GitHub                    #
+###############################################################################
 # aliases
 alias rm='rm -i'
 alias cp='cp -i'
@@ -11,7 +14,5 @@ alias ozone='sudo ozone'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export GIT_EDITOR=vim
-
-# jlink settings
-export PATH=$PATH:~/bin/jlink
+###############################################################################
 
