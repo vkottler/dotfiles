@@ -86,5 +86,6 @@ for i in ${REPOS_TO_CLONE[@]}; do
 done
 ###############################################################################
 
+echo "Make sure to run 'source ~/.bashrc' for new shell configurations to take hold!"
 exit 0
 
