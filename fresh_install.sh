@@ -55,7 +55,7 @@ rm slack*.deb
 ###############################################################################
 #                               Make New Directories                          #
 ###############################################################################
-DIRS_TO_MAKE="$HOME_STRING/bin $REPO_DIR"
+DIRS_TO_MAKE="$HOME_STRING/bin $REPO_DIR $HOME_STRING/Documents/svn"
 echo "Creating directories: $DIRS_TO_MAKE"
 mkdir -p $DIRS_TO_MAKE
 ###############################################################################
@@ -92,6 +92,15 @@ for i in ${REPOS_TO_CLONE[@]}; do
 	git clone $GITHUB_URL/$i $REPO_DESTINATION
 done
 ###############################################################################
+
+
+###############################################################################
+#                             Clone SVN Repositories                          #
+###############################################################################
+svn co http://svn.badgerloop.com/st32 $HOME_STRING/Documents/svn/
+svn co http://svn.badgerloop.com/electrical $HOME_STRING/Documents/svn/
+###############################################################################
+
 
 echo "Make sure to run 'source ~/.bashrc' for new shell configurations to take hold!"
 exit 0
