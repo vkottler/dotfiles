@@ -43,6 +43,11 @@ rm JLink*.deb
 wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
 sudo dpkg -i ozone*.deb
 rm ozone*.deb
+
+# Install Slack
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.6.2-amd64.deb
+sudo dpkg -i slack*.deb
+rm slack*.deb
 ###############################################################################
 
 
