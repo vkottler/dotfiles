@@ -4,6 +4,7 @@
 #                                 Global Symbols                              #
 ###############################################################################
 HOME_STRING=$(echo ~)
+USERNAME=$(whoami)
 REPO_DIR=$(echo $HOME_STRING/Documents/gitRepos)
 ###############################################################################
 
@@ -66,6 +67,7 @@ mkdir -p $DIRS_TO_MAKE
 git clone https://github.com/vkottler/dotfiles.git $HOME_STRING/dotfiles
 ~/dotfiles/updateVimLocal.sh
 ~/dotfiles/appendBashrc.sh
+sudo usermod -a -G dialout $USERNAME
 ###############################################################################
 
 
