@@ -4,7 +4,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cls='clear && ls'
-alias jlink='JLinkExe'
+alias jlink='sudo JLinkExe'
+alias ozone='sudo ozone'
 
 # git editor settings
 export VISUAL=vim

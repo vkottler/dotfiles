@@ -21,7 +21,7 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 ###############################################################################
 #                               Install New Software                          #
 ###############################################################################
-INSTALL_LIST="git vim subversion gcc-arm-none-eabi spotify-client"
+INSTALL_LIST="git vim subversion nodejs gcc-arm-none-eabi spotify-client"
 echo "Updating & Upgrading . . ."
 sudo apt-get update && sudo apt-get upgrade -y
 echo "Installing $INSTALL_LIST"
@@ -35,6 +35,14 @@ if [ $? -ne 0 ] then
 sudo apt-get install -f -y
 fi
 rm google-chrome*.deb
+
+# Install JLink Utilities
+wget https://www.segger.com/downloads/jlink/JLink_Linux_V614h_x86_64.deb
+sudo dpkg -i JLink*.deb
+rm JLink*.deb
+wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
+sudo dpkg -i ozone*.deb
+rm ozone*.deb
 ###############################################################################
 
 
@@ -65,6 +73,7 @@ GITHUB_URL="https://github.com"
 REPOS_TO_CLONE=(\
 "badgerloop-software/st32.git" \
 "madison-embedded/gcc-builds.git" \
+"madison-embedded/website.git" \
 "vkottler/personal-homepage.git" \
 )
 
