@@ -32,18 +32,15 @@ sudo apt-get install $INSTALL_LIST -y
 sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
-if [ $? -ne 0 ] then
-sudo apt-get install -f -y
-fi
 rm google-chrome*.deb
 
 # Install JLink Utilities
-wget https://www.segger.com/downloads/jlink/JLink_Linux_V614h_x86_64.deb
-sudo dpkg -i JLink_Linux_V614h_x86_64.deb
-rm JLink*.deb
+wget https://www.segger.com/downloads/jlink/JLink_Linux_V616_x86_64.deb
 wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
+sudo dpkg -i JLink*.deb
 sudo dpkg -i ozone*.deb
 rm ozone*.deb
+rm JLink*.deb
 
 # Install Slack
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.6.2-amd64.deb
@@ -97,8 +94,8 @@ done
 ###############################################################################
 #                             Clone SVN Repositories                          #
 ###############################################################################
-svn co http://svn.badgerloop.com/st32 $HOME_STRING/Documents/svn/
-svn co http://svn.badgerloop.com/electrical $HOME_STRING/Documents/svn/
+svn co http://svn.badgerloop.com/st32 $HOME_STRING/Documents/svn/st32
+svn co http://svn.badgerloop.com/electrical $HOME_STRING/Documents/svn/electrical
 ###############################################################################
 
 
