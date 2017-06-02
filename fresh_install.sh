@@ -39,7 +39,7 @@ rm google-chrome*.deb
 
 # Install JLink Utilities
 wget https://www.segger.com/downloads/jlink/JLink_Linux_V614h_x86_64.deb
-sudo dpkg -i JLink*.deb
+sudo dpkg -i JLink_Linux_V614h_x86_64.deb
 rm JLink*.deb
 wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
 sudo dpkg -i ozone*.deb
