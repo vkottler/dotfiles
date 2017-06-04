@@ -35,12 +35,12 @@ sudo dpkg -i google-chrome*.deb
 rm google-chrome*.deb
 
 # Install JLink Utilities
-wget https://www.segger.com/downloads/jlink/JLink_Linux_V616_x86_64.deb
+#wget https://www.segger.com/downloads/jlink/JLink_Linux_V616_x86_64.deb
+#sudo dpkg -i JLink*.deb
+#rm JLink*.deb
 wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
-sudo dpkg -i JLink*.deb
 sudo dpkg -i ozone*.deb
 rm ozone*.deb
-rm JLink*.deb
 
 # Install Slack
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.6.2-amd64.deb
