@@ -63,3 +63,12 @@ set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
 " set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set colorcolumn=80
+
+colorscheme torte
+
+" Windows / GVim
+" set expandtab
+" filetype plugin indent on
+" set backspace=indent,eol,start
