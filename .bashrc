@@ -8,6 +8,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias cls='clear && ls'
 alias vime='vim +Explore'
+alias fls='nautilus --new-window --browser >/dev/null 2>/dev/null &'
 
 # git editor settings
 export VISUAL=vim
