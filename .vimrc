@@ -5,19 +5,27 @@
 " Vaughn Kottler .vimrc
 " Last updated 3/17/2017
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Don't worry about vi compatibility
-set nocompatible
+
+set nocompatible				" Don't worry about vi compatibility
+filetype off					" Required for Vundle (?)
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'	" Required for Vundle
+Plugin 'scrooloose/nerdtree'	" file drawer, open with :NERDTreeToggle
+call vundle#end()
+
+filetype plugin indent on		" Required for Vundle (?)
+set autoread					" Detect when a file is changed
+set colorcolumn=80				" 80 character limit reminder
+colorscheme torte				" chosen color scheme
 
 " Turn on syntax highlighting
 syntax on
 set showmode
 
-" Show line numbers
-set number
-
-" Encoding
-set encoding=utf-8
+set number						" Show line numbers
+set encoding=utf-8				" Encoding
 
 " Searching
 set ignorecase
@@ -38,6 +46,7 @@ map <leader>l :set list!<CR>
 map <leader>L /\s\+$<CR>
 
 " Navigating Tabs
+" New WinMove function may replace these
 map <leader>p :tabp<CR>
 map <leader>n :tabn<CR>
 map <leader>t :tab split +Explore<CR>
@@ -60,15 +69,51 @@ set statusline+=%w%h%m%r                       " Options
 set statusline+=\ [%{&ff}/%Y]                  " filetype
 set statusline+=\ [%{split(getcwd(),'/')[-1]}] " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
-" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set colorcolumn=80
-
-colorscheme torte
 
 " Windows / GVim
 " set expandtab
 " filetype plugin indent on
 " set backspace=indent,eol,start
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Functions                                    "
+"                                                                             "
+" WinMove from https://github.com/nicknisi/vim-workshop/                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-h> :call WinMove('h')<cr>
+map <C-j> :call WinMove('j')<cr>
+map <C-k> :call WinMove('k')<cr>
+map <C-l> :call WinMove('l')<cr>
+
+" Window movement shortcuts
+" move to the window in the direction shown, or create a new window
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               Plugin Settings                               "
+"                                                                             "
+" NERDTree from https://github.com/nicknisi/vim-workshop/                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=1
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" Toggle NERDTree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
