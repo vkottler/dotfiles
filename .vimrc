@@ -18,11 +18,14 @@ call vundle#end()
 filetype plugin indent on		" Required for Vundle (?)
 set autoread					" Detect when a file is changed
 set colorcolumn=80				" 80 character limit reminder
-colorscheme torte				" chosen color scheme
+colorscheme torte				" Chosen color scheme
 
 " Turn on syntax highlighting
 syntax on
 set showmode
+
+" Preserve transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 set number						" Show line numbers
 set encoding=utf-8				" Encoding
