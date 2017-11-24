@@ -22,25 +22,25 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 ###############################################################################
 #                               Install New Software                          #
 ###############################################################################
-INSTALL_LIST="git vim subversion qpdfview gtkterm nodejs gcc-arm-none-eabi spotify-client"
+INSTALL_LIST="git vim subversion gtkterm gcc-arm-none-eabi spotify-client"
 echo "Updating & Upgrading . . ."
 sudo apt-get update && sudo apt-get upgrade -y
 echo "Installing $INSTALL_LIST"
 sudo apt-get install $INSTALL_LIST -y
 
 # Install Chrome
-sudo apt-get install libxss1 libappindicator1 libindicator7
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome*.deb
-rm google-chrome*.deb
+#sudo apt-get install libxss1 libappindicator1 libindicator7
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo dpkg -i google-chrome*.deb
+#rm google-chrome*.deb
 
 # Install JLink Utilities
 #wget https://www.segger.com/downloads/jlink/JLink_Linux_V616_x86_64.deb
 #sudo dpkg -i JLink*.deb
 #rm JLink*.deb
-wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
-sudo dpkg -i ozone*.deb
-rm ozone*.deb
+#wget https://www.segger.com/downloads/jlink/ozone_2.40.2_x86_64.deb
+#sudo dpkg -i ozone*.deb
+#rm ozone*.deb
 
 # Install Slack
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.6.2-amd64.deb
@@ -61,10 +61,14 @@ mkdir -p $DIRS_TO_MAKE
 ###############################################################################
 #                               Update Dot Files                              #
 ###############################################################################
-git clone https://github.com/vkottler/dotfiles.git $HOME_STRING/dotfiles
-~/dotfiles/updateVimLocal.sh
+# This has to already be cloned to be available
+#git clone https://github.com/vkottler/dotfiles.git $HOME_STRING/dotfiles
+~/dotfiles/link_vimrc.sh
 ~/dotfiles/appendBashrc.sh
 sudo usermod -a -G dialout $USERNAME
+sudo usermod -a -G plugdev $USERNAME
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ###############################################################################
 
 
@@ -75,9 +79,10 @@ git config --global user.email "vkottler@wisc.edu"
 git config --global user.name "vkottler"
 GITHUB_URL="https://github.com"
 REPOS_TO_CLONE=(\
-"badgerloop-software/st32.git" \
-"madison-embedded/gcc-builds.git" \
-"madison-embedded/website.git" \
+"badgerloop-software/pod3_gcc.git" \
+"badgerloop-software/pod3_documentation.git" \
+"badgerloop-software/pod3_dashboard.git" \
+"badgerloop-software/pod3_server.git" \
 "vkottler/personal-homepage.git" \
 )
 
@@ -94,10 +99,10 @@ done
 ###############################################################################
 #                             Clone SVN Repositories                          #
 ###############################################################################
-svn co http://svn.badgerloop.com/st32 $HOME_STRING/Documents/svn/st32
-svn co http://svn.badgerloop.com/electrical $HOME_STRING/Documents/svn/electrical
+svn co http://svn.badgerloop.com/pod $HOME_STRING/Documents/svn/pod
 ###############################################################################
 
+vim +PluginInstall +qall
 
 echo "Make sure to run 'source ~/.bashrc' for new shell configurations to take hold!"
 exit 0
