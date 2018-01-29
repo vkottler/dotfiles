@@ -22,7 +22,7 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 ###############################################################################
 #                               Install New Software                          #
 ###############################################################################
-INSTALL_LIST="git vim tmux subversion gtkterm gcc-arm-none-eabi spotify-client"
+INSTALL_LIST="git vim tmux subversion gtkterm gcc-arm-none-eabi spotify-client network-manager-openconnect-gnome"
 echo "Updating & Upgrading . . ."
 sudo apt-get update && sudo apt-get upgrade -y
 echo "Installing $INSTALL_LIST"
