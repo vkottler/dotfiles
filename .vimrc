@@ -7,14 +7,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible				" Don't worry about vi compatibility
-filetype off					" Required for Vundle (?)
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'	" Required for Vundle
-Plugin 'scrooloose/nerdtree'	" file drawer, open with :NERDTreeToggle
-call vundle#end()
-
 filetype plugin indent on		" Required for Vundle (?)
 set autoread					" Detect when a file is changed
 set colorcolumn=80				" 80 character limit reminder
