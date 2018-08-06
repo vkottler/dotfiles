@@ -50,6 +50,7 @@ map <leader>T :Explore<CR>
 " Tab Character Spacing
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 " Quick Insertion
 nnoremap <Space> i_<Esc>r
@@ -97,18 +98,6 @@ function! WinMove(key)
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               Plugin Settings                               "
-"                                                                             "
-" NERDTree from https://github.com/nicknisi/vim-workshop/                     "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=1
-" show hidden files in NERDTree
-let NERDTreeShowHidden=1
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set fdm=syntax
+set foldlevelstart=20
+set noeb vb t_tb=
