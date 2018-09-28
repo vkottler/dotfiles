@@ -19,7 +19,7 @@ set showmode
 " Preserve transparent background
 hi Normal guibg=NONE ctermbg=NONE
 
-set number						" Show line numbers
+set number relativenumber		" Show line numbers
 set encoding=utf-8				" Encoding
 
 " Searching
