@@ -6,6 +6,18 @@
 " Last updated 3/17/2017
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" automatically install the plugin manager if it's not there
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" declare plugins, install with :PlugInstall if necessary
+call plug#begin('~/.vim/plugged')
+Plug 'rust-lang/rust.vim'
+call plug#end()
+
 set nocompatible				" Don't worry about vi compatibility
 filetype plugin indent on		" Required for Vundle (?)
 set autoread					" Detect when a file is changed
