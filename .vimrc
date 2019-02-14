@@ -70,6 +70,15 @@ nnoremap <Space> i_<Esc>r
 " HTML autocomplete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+" Kernel-style C
+autocmd FileType c call SetKernelRules()
+function SetKernelRules()
+    set tabstop=8
+    set softtabstop=8
+    set shiftwidth=8
+    set noexpandtab
+endfunction
+
 " Status Line
 set laststatus=2                               " always show status line
 set statusline=%<%f\                           " Filename
