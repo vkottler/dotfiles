@@ -72,6 +72,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 " Kernel-style C
 autocmd FileType c call SetKernelRules()
+autocmd FileType h call SetKernelRules()
 function SetKernelRules()
     set tabstop=8
     set softtabstop=8
