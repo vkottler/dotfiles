@@ -16,6 +16,8 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export GIT_EDITOR=vim
 
+export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
+
 # adding git branch to prompt
 _parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
