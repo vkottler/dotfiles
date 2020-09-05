@@ -104,6 +104,12 @@ map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
+" Prevent netrw's <C-l> overriding our mapping
+augroup netrw_mapping
+    autocmd!
+    autocmd FileType netrw map <buffer> <C-l> :call WinMove('l')<cr>
+augroup END
+
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
 function! WinMove(key)
