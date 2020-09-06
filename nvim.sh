@@ -21,3 +21,6 @@ ln -fs $HOME_BIN/neovim $HOME_BIN/nvim
 # link standard vimrc
 mkdir -p ~/.config/nvim
 ln -fs $(pwd)/init.vim ~/.config/nvim/
+
+# make it the default
+$(pwd)/update_alternatives.sh

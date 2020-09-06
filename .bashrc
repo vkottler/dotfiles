@@ -32,3 +32,6 @@ parse_git_branch() {
 # Add the following to the PS1 declaration
 # \[\033[33m\]$(parse_git_branch)
 ###############################################################################
+
+# hack for wsl, opening Windows Terminal
+cd $HOME
