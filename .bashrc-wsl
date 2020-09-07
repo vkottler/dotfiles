@@ -1,7 +1,8 @@
-export BROWSER="/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+# export BROWSER="/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+export BROWSER="$HOME/bin/wsl_browser.sh"
 
 # https://github.com/rust-lang/rustup/issues/2206
-export RDOC_LOC="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/index.html"
+export RDOC_LOC=`rustup doc --path`
 alias rdoc='"$BROWSER" `wslpath -w $RDOC_LOC`'
 
 cd $HOME
