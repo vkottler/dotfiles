@@ -2,7 +2,7 @@
 
 remove_and_link() {
 	rm -f $HOME/$1
-	mkdir -p `dirname $1`
+	mkdir -p $HOME/`dirname $1`
 	ln -s $(pwd)/$1 $HOME/$1
 }
 
