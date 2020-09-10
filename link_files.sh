@@ -21,9 +21,10 @@ source $HOME/.bashrc
 
 # add wsl if it makes sense to
 if [[ `uname -r` == *"microsoft"*  ]]; then
-	link_dep wsl.sh
+	source link_deps/link_wsl.sh
+fi
 
-	# trying to start stuff automatically is incredibly jank in wsl
-	sudo cp -f $(pwd)/00-wsl.conf /etc/sudoers.d/00-wsl
-	cp -f $(pwd)/wsl.bat $APP_DATA/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/wsl.bat
+# ubuntu-specific operations
+if [[ `uname -v` == *"Ubuntu"* ]]; then
+	source link_deps/link_ubuntu.sh
 fi
