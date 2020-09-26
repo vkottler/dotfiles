@@ -16,7 +16,14 @@ remove_and_link_dir .bash_includes
 link_dep ubuntu_standard.sh
 link_dep editor.sh
 
+# load new configurations
+source $HOME/.bashrc
+
 # add wsl if it makes sense to
 if [[ `uname -r` == *"microsoft"*  ]]; then
 	link_dep wsl.sh
+
+	# trying to start stuff automatically is incredibly jank in wsl
+	sudo cp -f $(pwd)/00-wsl.conf /etc/sudoers.d/00-wsl
+	cp -f $(pwd)/wsl.bat $APP_DATA/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/wsl.bat
 fi

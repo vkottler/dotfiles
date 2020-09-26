@@ -10,12 +10,22 @@ if [ ! -n "$WSL_FIRST_LOAD" ]; then
 	export WSL_FIRST_LOAD=no
 	cd $HOME
 
-	# show motd
-	if [ -d /etc/update-motd.d ] && [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then
-		for i in /etc/update-motd.d/*; do
-			$i
-		done
+	# things to do if we're not an ssh session
+	if [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then
+		# start sshd (idempotent)
+		sudo /etc/init.d/ssh start
+
+		# show motd
+		if [ -d /etc/update-motd.d ]; then
+			for i in /etc/update-motd.d/*; do
+				$i
+			done
+		fi
 	fi
 fi
 
 export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
+
+# useful variables
+export WIN_HOME=/mnt/c/Users/vkottler
+export APP_DATA=$WIN_HOME/AppData
