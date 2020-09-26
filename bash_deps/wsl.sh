@@ -9,6 +9,13 @@ alias rdoc='"$BROWSER" `wslpath -w $RDOC_LOC`'
 if [ ! -n "$WSL_FIRST_LOAD" ]; then
 	export WSL_FIRST_LOAD=no
 	cd $HOME
+
+	# show motd
+	if [ -d /etc/update-motd.d ]; then
+		for i in /etc/update-motd.d/*; do
+			$i
+		done
+	fi
 fi
 
 export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
