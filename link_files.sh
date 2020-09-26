@@ -13,6 +13,9 @@ remove_and_link .bashrc
 remove_and_link_dir bin
 remove_and_link_dir .bash_includes
 
+link_dep ubuntu_standard.sh
+link_dep editor.sh
+
 # add wsl if it makes sense to
 if [[ `uname -r` == *"microsoft"*  ]]; then
 	link_dep wsl.sh
