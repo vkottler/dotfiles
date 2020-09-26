@@ -12,10 +12,3 @@ if [ -d ~/.bash_includes ]; then
 	done
 	unset i
 fi
-
-###############################################################################
-
-# git editor settings
-export VISUAL=vim
-export EDITOR="$VISUAL"
-export GIT_EDITOR=vim
