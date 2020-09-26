@@ -11,7 +11,7 @@ if [ ! -n "$WSL_FIRST_LOAD" ]; then
 	cd $HOME
 
 	# show motd
-	if [ -d /etc/update-motd.d ]; then
+	if [ -d /etc/update-motd.d ] && [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then
 		for i in /etc/update-motd.d/*; do
 			$i
 		done
