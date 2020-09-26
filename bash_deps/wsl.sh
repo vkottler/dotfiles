@@ -5,4 +5,10 @@ export BROWSER="$HOME/bin/wsl_browser.sh"
 export RDOC_LOC=`rustup doc --path`
 alias rdoc='"$BROWSER" `wslpath -w $RDOC_LOC`'
 
-cd $HOME
+# make it so we always start in our home directory
+if [ ! -n "$WSL_FIRST_LOAD" ]; then
+	export WSL_FIRST_LOAD=no
+	cd $HOME
+fi
+
+export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'

@@ -108,5 +108,3 @@ fi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export GIT_EDITOR=vim
-
-export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
