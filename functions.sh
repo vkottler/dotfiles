@@ -15,11 +15,15 @@ link_dep() {
 source_if_wsl() {
 	if [[ `uname -r` == *"microsoft"*  ]]; then
 		source $1
+	else
+		source $2
 	fi
 }
 
 source_if_ubuntu() {
 	if [[ `uname -v` == *"Ubuntu"* ]]; then
 		source $1
+	else
+		source $2
 	fi
 }

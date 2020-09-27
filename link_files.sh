@@ -20,7 +20,10 @@ link_dep editor.sh
 source $HOME/.bashrc
 
 # add wsl if it makes sense to
-source_if_wsl link_deps/link_wsl.sh
+source_if_wsl link_deps/link_wsl.sh link_deps/link_not_wsl.sh
 
 # ubuntu-specific operations
 source_if_ubuntu link_deps/link_ubuntu.sh
+
+# load new configurations
+source $HOME/.bashrc
