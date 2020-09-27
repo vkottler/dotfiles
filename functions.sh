@@ -21,7 +21,7 @@ source_if_wsl() {
 }
 
 source_if_ubuntu() {
-	if [[ `uname -v` == *"Ubuntu"* ]]; then
+	if [[ `uname -v` == *"Ubuntu"* ]] && ! [[ `uname -r` == *"microsoft"* ]]; then
 		source $1
 	else
 		source $2
