@@ -24,3 +24,6 @@ ln -fs $(pwd)/init.vim ~/.config/nvim/
 
 # make it the default
 $(pwd)/update_alternatives.sh
+
+# load the updates
+source ~/.bashrc
