@@ -11,3 +11,15 @@ remove_and_link_dir() {
 link_dep() {
 	ln -sf $(pwd)/bash_deps/$1 $HOME/.bash_includes/$1
 }
+
+source_if_wsl() {
+	if [[ `uname -r` == *"microsoft"*  ]]; then
+		source $1
+	fi
+}
+
+source_if_ubuntu() {
+	if [[ `uname -v` == *"Ubuntu"* ]]; then
+		source $1
+	fi
+}

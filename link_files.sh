@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source setup.sh
+source functions.sh
 
 remove_and_link .vimrc
 remove_and_link .vimrc-common
@@ -20,11 +20,7 @@ link_dep editor.sh
 source $HOME/.bashrc
 
 # add wsl if it makes sense to
-if [[ `uname -r` == *"microsoft"*  ]]; then
-	source link_deps/link_wsl.sh
-fi
+source_if_wsl link_deps/link_wsl.sh
 
 # ubuntu-specific operations
-if [[ `uname -v` == *"Ubuntu"* ]]; then
-	source link_deps/link_ubuntu.sh
-fi
+source_if_ubuntu link_deps/link_ubuntu.sh

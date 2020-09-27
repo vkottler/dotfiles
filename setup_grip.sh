@@ -2,5 +2,5 @@
 
 sudo -H pip3 install grip
 
-source setup.sh
+source functions.sh
 link_dep grip.sh
