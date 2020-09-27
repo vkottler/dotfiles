@@ -23,7 +23,7 @@ source $HOME/.bashrc
 source_if_wsl link_deps/link_wsl.sh link_deps/link_not_wsl.sh
 
 # ubuntu-specific operations
-source_if_ubuntu link_deps/link_ubuntu.sh
+source_if_ubuntu link_deps/link_ubuntu.sh link_deps/noop.sh
 
 # load new configurations
 source $HOME/.bashrc
