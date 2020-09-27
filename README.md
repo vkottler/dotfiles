@@ -19,6 +19,7 @@ rendered [GitHub markdown](https://github.github.com/gfm/)
 variables for [Rust](https://www.rust-lang.org/)
 1. `./`[`setup_nvim.sh`](setup_nvim.sh) installs [Neovim](https://neovim.io/)
 and makes it a default terminal editor
+1. `./`[`setup_vscode.sh`](setup_vscode.sh) installs and sets up [VSCodium](https://vscodium.com/)
 
 ## Design Intent
 
