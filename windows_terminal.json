@@ -1,0 +1,12 @@
+{
+    "theme": "dark",
+    "copyOnSelect": true,
+    "copyFormatting": false,
+    "profiles": {
+        "defaults": {
+            "useAcrylic": true,
+            "closeOnExit": "always",
+            "fontSize": 14
+        }
+    }
+}
