@@ -8,5 +8,8 @@
             "closeOnExit": "always",
             "fontSize": 14
         }
-    }
+    },
+    "keybindings": [
+        { "command": "closeWindow", "keys": "ctrl+w" }
+    ]
 }
