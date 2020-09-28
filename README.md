@@ -7,6 +7,8 @@ jank as possible.
 
 ## Usage
 
+### Ubuntu (or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
+
 Run these commands from your checkout (inside this directory).
 
 1. `./`[`link_files.sh`](link_files.sh) symbolically links these files to your
@@ -20,6 +22,10 @@ variables for [Rust](https://www.rust-lang.org/)
 1. `./`[`setup_nvim.sh`](setup_nvim.sh) installs [Neovim](https://neovim.io/)
 and makes it a default terminal editor
 1. `./`[`setup_vscode.sh`](setup_vscode.sh) installs and sets up [VSCodium](https://vscodium.com/)
+
+### Windows 10
+
+TODO
 
 ## Design Intent
 
