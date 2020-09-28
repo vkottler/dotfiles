@@ -1,10 +1,9 @@
 # create user profile dir if it doesn't exist
-$ProfileDir = $env:USERPROFILE + "\Documents\WindowsPowerShell"
-$ProfileFile = $ProfileDir + "\Microsoft.PowerShell_profile.ps1"
+$ProfileDir = [string]::Format("{0}\Documents\PowerShell", $env:USERPROFILE)
+$ProfileFile = [string]::Format("{0}\Microsoft.PowerShell_profile.ps1", $ProfileDir)
 md $ProfileDir -ErrorAction SilentlyContinue
 
 # symlink our profile
-$Command = "cmd /c mklink " + $ProfileFile + " " + $pwd.path + "\profile.ps1"
-echo $Command
-Remove-Item -Force $ProfileFile
-PowerShell -Command "$Command"
+Remove-Item -Force -ErrorAction SilentlyContinue $ProfileFile
+$Command = [string]::Format("cmd /c mklink {0} {1}\profile.ps1", $ProfileFile, $pwd.path)
+Invoke-Expression $Command
