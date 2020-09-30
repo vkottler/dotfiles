@@ -2,4 +2,9 @@ bin/_nvim
 bin/.nvimlog
 bin/neovim
 bin/nvim
+
+bin/code
+bin/codium
+bin/_codium
+
 .bash_includes/*.sh

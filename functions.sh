@@ -1,3 +1,6 @@
+HOME_BIN=$HOME/bin
+mkdir -p $HOME_BIN
+
 remove_and_link() {
 	mkdir -p $HOME/`dirname $1`
 	ln -sf $(pwd)/$1 $HOME/$1
