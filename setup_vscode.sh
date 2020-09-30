@@ -20,8 +20,8 @@ ln -fs $HOME_BIN/_codium/AppRun $HOME_BIN/codium
 ln -fs $HOME_BIN/_codium/AppRun $HOME_BIN/code
 rm -f $HOME_BIN/$APP_IMAGE
 
-# install vscodium
-#source_if_ubuntu bash_deps/ubuntu_install_vscodium.sh link_deps/noop.sh
+# link settings file
+ln -fs $(pwd)/vscode/settings.json $HOME/.config/VSCodium/User/settings.json
 
 # install code server
 #curl -fsSL https://code-server.dev/install.sh | sh

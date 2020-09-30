@@ -1,0 +1,6 @@
+{
+    "vscode-neovim.neovimExecutablePaths.linux": "/home/vkottler/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "/home/vkottler/.config/nvim/init.vim",
+    "vscode-neovim.logLevel": "debug",
+    "vscode-neovim.logOutputToConsole": true
+}
