@@ -5,10 +5,15 @@
 " include shared settings
 source ~/.vimrc-common
 
-" declare plugins, install with :PlugInstall if necessary
-call plug#begin('~/.vim/plugged')
-Plug 'rust-lang/rust.vim'
-call plug#end()
+" automatically install the plugin manager if it's not there
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" include plugins
+source ~/.vimrc-plugins
 
 set nocompatible				" Don't worry about vi compatibility
 filetype plugin indent on		" Required for Vundle (?)

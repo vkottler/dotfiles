@@ -4,6 +4,7 @@ source functions.sh
 
 remove_and_link .vimrc
 remove_and_link .vimrc-common
+remove_and_link .vimrc-plugins
 
 remove_and_link .tmux.conf
 

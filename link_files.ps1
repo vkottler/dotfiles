@@ -1,17 +1,20 @@
-# create user profile dir if it doesn't exist
+Import-Module .\functions.ps1 -Force
+
 $ProfileDir = [string]::Format("{0}\Documents\PowerShell", $env:USERPROFILE)
-$ProfileFile = [string]::Format("{0}\Microsoft.PowerShell_profile.ps1", $ProfileDir)
-md $ProfileDir -ErrorAction SilentlyContinue
+$ProfileFilename = "Microsoft.PowerShell_profile.ps1"
 
 # sanity check we have the right file, we should refactor this to just use
-# $PROFILE at some point
+$ProfileFile = [string]::Format("{0}\{1}", $ProfileDir, $ProfileFilename)
+# use $PROFILE instead at some point
 if ( $ProfileFile -ne $PROFILE ) {
     $ErrorStr = [string]::Format("fix script: {0} != {1}", $ProfileFile, $PROFILE)
     Write-Error $ErrorStr
     exit
+} else {
+    Link-Local "profile.ps1" $ProfileDir $ProfileFilename
 }
 
-# symlink our profile
-Remove-Item -Force -ErrorAction SilentlyContinue $ProfileFile
-$Command = [string]::Format("cmd /c mklink {0} {1}\profile.ps1", $ProfileFile, $pwd.path)
-Invoke-Expression $Command
+Link-Local ".vimrc"
+Link-Local ".vimrc-common"
+Link-Local ".vimrc-plugins"
+Link-Local "init.vim" $HOME\AppData\Local\nvim

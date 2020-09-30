@@ -25,5 +25,10 @@ ln -fs $(pwd)/init.vim ~/.config/nvim/
 # make it the default
 $(pwd)/update_alternatives.sh
 
+# install plugin manager
+$PLUG_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
+rm -rf $PLUG_DIR
+sh -c 'curl -fLo $PLUG_DIR --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # load the updates
 source ~/.bashrc
