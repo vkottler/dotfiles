@@ -7,6 +7,7 @@ if ( -Not ( Test-Path $HOME\posh-git ) ) {
 Import-Module $HOME\posh-git\src\posh-git.psd1
 
 # useful aliases
+Set-Alias -Name grep -Value Select-String
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name code -Value codium
 Set-Alias -Name vscode -Value codium
