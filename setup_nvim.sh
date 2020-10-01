@@ -18,6 +18,10 @@ ln -fs $HOME_BIN/_nvim/AppRun $HOME_BIN/neovim
 ln -fs $HOME_BIN/neovim $HOME_BIN/nvim
 rm -f $HOME_BIN/$APP_IMAGE
 
+# install base extensions
+$HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension asvetliakov.vscode-neovim
+$HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension dunstontc.viml
+
 # link standard vimrc
 mkdir -p ~/.config/nvim
 ln -fs $(pwd)/init.vim ~/.config/nvim/
