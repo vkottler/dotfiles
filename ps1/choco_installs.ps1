@@ -1,7 +1,8 @@
 #requires -version 4.0
 #requires -runasadministrator
 
-choco upgrade -y vscodium microsoft-windows-terminal git rust
+# consider: discord, audacity
+choco upgrade -y vscodium microsoft-windows-terminal git rust vlc slack chromium
 choco upgrade -y neovim --pre
 
 # install base extensions
