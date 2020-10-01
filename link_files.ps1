@@ -1,4 +1,4 @@
-Import-Module .\functions.ps1 -Force
+Import-Module .\ps1\functions.ps1 -Force
 
 $ProfileDir = [string]::Format("{0}\Documents\PowerShell", $env:USERPROFILE)
 $ProfileFilename = "Microsoft.PowerShell_profile.ps1"

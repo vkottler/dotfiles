@@ -3,7 +3,7 @@
 
 # try to update PowerShell if necessary
 if ( $PSVersionTable.PSVersion.Major -ne 7 ) {
-    & .\install_ps7.ps1
+    & .\ps1\install_ps7.ps1
     Write-Output "Run script again from the newly installed PowerShell."
     exit
 }
@@ -15,6 +15,6 @@ if ( -Not ( Get-Command -ErrorAction SilentlyContinue choco ) ) {
     exit
 }
 
-& .\choco_installs.ps1
+& .\ps1\choco_installs.ps1
 
 & .\link_files.ps1
