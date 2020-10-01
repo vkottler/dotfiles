@@ -3,7 +3,10 @@ let &packpath = &runtimepath
 
 if !exists('g:vscode')
 	" include shared settings
-	source ~/.vimrc-common
+	source ~/.vim/$USER/common.vimrc
+
 	" include plugins
-	source ~/.vimrc-plugins
+	source ~/.vim/$USER/plugins.vimrc
+else
+	source ~/.vim/$USER/vscode.vimrc
 endif

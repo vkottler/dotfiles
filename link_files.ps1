@@ -15,6 +15,5 @@ if ( $ProfileFile -ne $PROFILE ) {
 }
 
 Link-Local ".vimrc"
-Link-Local ".vimrc-common"
-Link-Local ".vimrc-plugins"
+Link-Local "vim" $HOME\.vim $env:UserName
 Link-Local "init.vim" $HOME\AppData\Local\nvim

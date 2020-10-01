@@ -1,6 +1,8 @@
 {
     "vscode-neovim.neovimExecutablePaths.linux": "/home/vkottler/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.linux": "/home/vkottler/.config/nvim/init.vim",
-    "vscode-neovim.logLevel": "debug",
-    "vscode-neovim.logOutputToConsole": true
+    "vscode-neovim.logLevel": "warn",
+    "vscode-neovim.logOutputToConsole": true,
+    "files.trimFinalNewlines": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }

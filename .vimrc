@@ -3,7 +3,7 @@
 "
 
 " include shared settings
-source ~/.vimrc-common
+source ~/.vim/$USER/common.vimrc
 
 " automatically install the plugin manager if it's not there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -13,7 +13,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " include plugins
-source ~/.vimrc-plugins
+source ~/.vim/$USER/plugins.vimrc
 
 set nocompatible				" Don't worry about vi compatibility
 filetype plugin indent on		" Required for Vundle (?)

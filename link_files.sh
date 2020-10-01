@@ -3,8 +3,9 @@
 source functions.sh
 
 remove_and_link .vimrc
-remove_and_link .vimrc-common
-remove_and_link .vimrc-plugins
+mkdir -p $HOME/.vim
+rm -rf $HOME/.vim/$USER
+ln -sf $(pwd)/vim $HOME/.vim/$USER
 
 remove_and_link .tmux.conf
 

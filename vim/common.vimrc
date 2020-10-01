@@ -6,6 +6,9 @@
 " 80 character limit reminder
 set colorcolumn=80
 
+" load common binds
+source ~/.vim/$USER/simple_keybinds.vimrc
+
 " visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
@@ -14,13 +17,8 @@ map <leader>l :set list!<CR>
 map <leader>L /\s\+$<CR>
 
 " navigating tabs
-map <leader>p :tabp<CR>
-map <leader>n :tabn<CR>
 map <leader>t :tab split +Explore<CR>
 map <leader>T :Explore<CR>
-
-" quick insertion
-nnoremap <Space> i_<Esc>r
 
 " WinMove from https://github.com/nicknisi/vim-workshop/
 map <C-h> :call WinMove('h')<cr>
