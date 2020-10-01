@@ -25,6 +25,8 @@ Link-Local "settings.json" $env:AppData\VSCodium\User -SrcRoot $SrcRoot
 
 # windows terminal configuration
 $WinTermLoc = ls $HOME\AppData\Local\Packages | Select-String WindowsTerminal
-$WinTermLoc = [string]::Format("{0}\{1}", $WinTermLoc, "LocalState")
-$SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "windows_terminal")
-Link-Local "settings.json" $WinTermLoc -SrcRoot $SrcRoot
+if ( $WinTermLoc ) {
+	$WinTermLoc = [string]::Format("{0}\{1}", $WinTermLoc, "LocalState")
+	$SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "windows_terminal")
+	Link-Local "settings.json" $WinTermLoc -SrcRoot $SrcRoot
+}
