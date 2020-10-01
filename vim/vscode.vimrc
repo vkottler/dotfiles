@@ -1,7 +1,7 @@
-let $MYVIMRC = "~/.config/nvim/init.vim"
+let $MYVIMRC = $HOME . "/.config/nvim/init.vim"
 
 " load common binds
-source ~/.vim/$USER/simple_keybinds.vimrc
+call IncludeScript("simple_keybinds")
 
 " 80 character limit reminder
 " TODO

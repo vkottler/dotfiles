@@ -7,7 +7,7 @@
 set colorcolumn=80
 
 " load common binds
-source ~/.vim/$USER/simple_keybinds.vimrc
+call IncludeScript("simple_keybinds")
 
 " visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬

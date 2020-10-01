@@ -2,8 +2,22 @@
 " http://tnerual.eriogerg.free.fr/vimqrc.html
 "
 
+function! IncludeScript(file)
+	let l:include_path = "~/.vim/"
+	if exists('$USER')
+		let l:include_path .= $USER . "/"
+	elseif exists('$USERNAME')
+		let l:include_path .= $USERNAME . "/"
+	else
+		echo "Can't find include path via $USER or $USERNAME"
+		finish
+	endif
+	let l:include_path .= a:file . ".vimrc"
+	exec "source " . l:include_path
+endfunction
+
 " include shared settings
-source ~/.vim/$USER/common.vimrc
+call IncludeScript("common")
 
 " automatically install the plugin manager if it's not there
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -13,7 +27,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " include plugins
-source ~/.vim/$USER/plugins.vimrc
+call IncludeScript("plugins")
 
 set nocompatible				" Don't worry about vi compatibility
 filetype plugin indent on		" Required for Vundle (?)
