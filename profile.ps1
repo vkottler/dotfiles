@@ -8,5 +8,7 @@ Import-Module $HOME\posh-git\src\posh-git.psd1
 
 # useful aliases
 Set-Alias -Name vim -Value nvim
+Set-Alias -Name code -Value codium
+Set-Alias -Name vscode -Value codium
 
 Write-Output $PSVersionTable.PSVersion

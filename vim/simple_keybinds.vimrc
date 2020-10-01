@@ -1,3 +1,5 @@
+set nofixendofline
+
 " quick insertion
 nnoremap <Space> i_<Esc>r
 
