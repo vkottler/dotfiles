@@ -17,3 +17,8 @@ if ( $ProfileFile -ne $PROFILE ) {
 Link-Local ".vimrc"
 Link-Local "vim" $HOME\.vim $env:UserName
 Link-Local "init.vim" $HOME\AppData\Local\nvim
+
+# link vscode settings
+$SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "vscode")
+Link-Local "settings.json" $env:AppData\Code\User -SrcRoot $SrcRoot
+Link-Local "settings.json" $env:AppData\VSCodium\User -SrcRoot $SrcRoot

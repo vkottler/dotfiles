@@ -1,8 +1,14 @@
 {
-    "vscode-neovim.neovimExecutablePaths.linux": "/home/vkottler/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.linux": "/home/vkottler/.config/nvim/init.vim",
+    "editor.rulers": [
+        80
+    ],
+    "window.zoomLevel": 2,
+    "vscode-neovim.neovimExecutablePaths.linux": "~/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
     "vscode-neovim.logLevel": "warn",
     "vscode-neovim.logOutputToConsole": true,
     "files.trimFinalNewlines": true,
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
+    "vscode-neovim.neovimInitVimPaths.win32": "~\\AppData\\Local\\nvim\\init.vim"
 }

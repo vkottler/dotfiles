@@ -20,6 +20,10 @@ ln -fs $HOME_BIN/_codium/AppRun $HOME_BIN/codium
 ln -fs $HOME_BIN/_codium/AppRun $HOME_BIN/code
 rm -f $HOME_BIN/$APP_IMAGE
 
+# install base extensions
+$HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension asvetliakov.vscode-neovim
+$HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension dunstontc.viml
+
 # link settings file
 ln -fs $(pwd)/vscode/settings.json $HOME/.config/VSCodium/User/settings.json
 

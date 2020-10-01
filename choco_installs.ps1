@@ -1,7 +1,12 @@
 #requires -version 4.0
 #requires -runasadministrator
 
-choco upgrade -y neovim vscodium microsoft-windows-terminal git rust
+choco upgrade -y vscodium microsoft-windows-terminal git rust
+choco upgrade -y neovim --pre
+
+# install base extensions
+codium --install-extension asvetliakov.vscode-neovim
+codium --install-extension dunstontc.viml
 
 # install neovim plugin manager
 $PlugDest = "$HOME\vimfiles\autoload\plug.vim"
