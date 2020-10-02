@@ -6,7 +6,7 @@
     "vscode-neovim.logLevel": "warn",
     "vscode-neovim.logOutputToConsole": true,
 
-    "vscode-neovim.neovimExecutablePaths.linux": "~/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "neovim",
     "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
     "vscode-neovim.neovimExecutablePaths.win32": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
     "vscode-neovim.neovimInitVimPaths.win32": "~\\AppData\\Local\\nvim\\init.vim",
