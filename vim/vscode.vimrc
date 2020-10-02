@@ -8,13 +8,18 @@ endif
 call IncludeScript("simple_keybinds")
 
 " visualize tabs and newlines
-" TODO
+map <leader>l :call VSCodeNotify('editor.action.toggleRenderWhitespace')<CR>
 
 " navigating tabs
-map <C-h> :call WinMove('Left')<cr>
-map <C-j> :call WinMove('Down')<cr>
-map <C-k> :call WinMove('Up')<cr>
-map <C-l> :call WinMove('Right')<cr>
+" TODO - these need to provide some kind of legitimate file browsing
+map <leader>t :enew<CR>
+map <leader>T :enew!<CR>
+
+" navigating tabs
+map <C-h> :call WinMove('Left')<CR>
+map <C-j> :call WinMove('Down')<CR>
+map <C-k> :call WinMove('Up')<CR>
+map <C-l> :call WinMove('Right')<CR>
 
 " move to the window in the direction shown, or create a new window
 function! WinMove(direction)
@@ -31,6 +36,3 @@ function! WinMove(direction)
         call VSCodeCall('workbench.action.splitEditor' . a:direction)
     endif
 endfunction
-
-" creating new tabs and exploring files
-" TODO

@@ -12,5 +12,6 @@
     "vscode-neovim.neovimInitVimPaths.win32": "~\\AppData\\Local\\nvim\\init.vim",
 
     "files.trimFinalNewlines": true,
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.renderWhitespace": "none"
 }
