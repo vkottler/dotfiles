@@ -12,6 +12,9 @@ map <leader>l :call VSCodeNotify('editor.action.toggleRenderWhitespace')<CR>
 
 " navigating tabs
 " TODO - these need to provide some kind of legitimate file browsing
+" https://github.com/bodil/vscode-file-browser
+" map <leader>t :call VSCodeCall('file-browser.open')<CR>
+" map <leader>T :call VSCodeCall('file-browser.open')<CR>
 map <leader>t :enew<CR>
 map <leader>T :enew!<CR>
 
