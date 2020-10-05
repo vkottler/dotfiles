@@ -7,6 +7,9 @@ Plug 'majutsushi/tagbar'
 Plug 'pprovost/vim-ps1'
 call plug#end()
 
-let g:rustfmt_autosave = 1
+" We could format on save, but I find that it can hang when you save knowing
+" something is already wrong.
+let g:rustfmt_autosave = 0
+nnoremap <leader>rf :RustFmt<CR>
 
 nmap <leader>g :TagbarToggle<CR>

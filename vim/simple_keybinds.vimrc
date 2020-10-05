@@ -4,8 +4,8 @@ set nofixendofline
 nnoremap <Space> i_<Esc>r
 
 " navigating tabs
-map <leader>p :tabp<CR>
-map <leader>n :tabn<CR>
+nnoremap <leader>p :tabp<CR>
+nnoremap <leader>n :tabn<CR>
 
 " fast reload settings
 nnoremap <leader>rv :source $MYVIMRC<CR>
