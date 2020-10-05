@@ -86,3 +86,5 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
+
+export XDG_CONFIG_HOME=$HOME/.config
