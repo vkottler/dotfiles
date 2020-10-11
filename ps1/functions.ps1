@@ -34,3 +34,30 @@ function Link-Local {
         Write-Output $result
     }
 }
+
+function Run-SubShell {
+	Param (
+		[Parameter(Mandatory=$false)] [string]$Command = "",
+		[Parameter(Mandatory=$false)] [bool]$ShouldExit = $false,
+		[Parameter(Mandatory=$false)] [bool]$AsAdmin = $false,
+		[Parameter(Mandatory=$false)] [bool]$PrintCommand = $false
+	)
+
+	$CommandArgs = New-Object Collections.Generic.List[string]
+	if ( -Not $ShouldExit ) {
+		$CommandArgs.Add("-NoExit")
+	}
+	$CommandArgs.Add("-Command")
+	$FullCommand = [string]::Format("cd {0}; {1}", $pwd.path, $Command)
+	$CommandArgs.Add($FullCommand)
+
+	if ( $PrintCommand ) {
+		Write-Output $Command
+	}
+
+	if ( $AsAdmin ) {
+		Start-Process PowerShell -Verb runAs -ArgumentList $CommandArgs
+	} else {
+		Start-Process PowerShell -ArgumentList $CommandArgs
+	}
+}

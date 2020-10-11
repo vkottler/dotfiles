@@ -1,3 +1,5 @@
+Import-Module $HOME\dotfiles\ps1\functions.ps1 -Force
+
 # clone posh-git if necessary
 if ( -Not ( Test-Path $HOME\posh-git ) ) {
 	git clone git@github.com:dahlbyk/posh-git.git $HOME\posh-git
@@ -7,12 +9,22 @@ if ( -Not ( Test-Path $HOME\posh-git ) ) {
 Import-Module $HOME\posh-git\src\posh-git.psd1
 
 function Run-Administrator([string]$Command) {
-	$FullCommand = [string]::Format("cd {0}; {1}", $pwd.path, $Command)
-	$CommandArgs = New-Object Collections.Generic.List[string]
-	$CommandArgs.Add("-NoExit")
-	$CommandArgs.Add("-Command")
-	$CommandArgs.Add($FullCommand)
-	Start-Process powershell -Verb runAs -ArgumentList $CommandArgs
+	Run-SubShell $Command -AsAdmin $true -PrintCommand $true
+}
+
+function Run-Grip {
+	$GripTokenPath = [string]::Format("{0}\grip_access_token.txt", $HOME)
+	if ( Test-Path $GripTokenPath ) {
+		$GripToken = Get-Content $GripTokenPath -Raw
+		$GripToken = $GripToken.Trim("`n", "`r", " ")
+		$FinalCommand = [string]::Format("grip --pass {0} -b", $GripToken)
+	} else {
+		$ErrorStr = [string]::Format("Can't find '{0}'!", $GripTokenPath)
+		Write-Error $ErrorStr
+		$FinalCommand = "grip -b"
+	}
+
+	Run-SubShell $FinalCommand -ShouldExit $true
 }
 
 # useful aliases
@@ -21,5 +33,6 @@ Set-Alias -Name vim -Value nvim
 Set-Alias -Name code -Value codium
 Set-Alias -Name vscode -Value codium
 Set-Alias -Name sudo -Value Run-Administrator
+Set-Alias -Name md -Value Run-Grip -Option AllScope
 
 Write-Output $PSVersionTable.PSVersion
