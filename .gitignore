@@ -1,12 +1,12 @@
 *.swp
 
-bin/_nvim
-bin/.nvimlog
-bin/neovim
-bin/nvim
+bash/bin/_nvim
+bash/bin/.nvimlog
+bash/bin/neovim
+bash/bin/nvim
 
-bin/code
-bin/codium
-bin/_codium
+bash/bin/code
+bash/bin/codium
+bash/bin/_codium
 
-.bash_includes/*.sh
+bash/.bash_includes/*.sh

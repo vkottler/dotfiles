@@ -25,7 +25,7 @@ $HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension asvetliakov.vs
 $HOME_BIN/_codium/usr/share/codium/bin/codium --install-extension dunstontc.viml
 
 # link settings file
-ln -fs $(pwd)/vscode/settings.json $HOME/.config/VSCodium/User/settings.json
+ln -fs $(pwd)/../vscode/settings.json $HOME/.config/VSCodium/User/settings.json
 
 # install code server
 #curl -fsSL https://code-server.dev/install.sh | sh

@@ -20,7 +20,7 @@ rm -f $HOME_BIN/$APP_IMAGE
 
 # link standard vimrc
 mkdir -p ~/.config/nvim
-ln -fs $(pwd)/init.vim ~/.config/nvim/
+ln -fs $(pwd)/../init.vim ~/.config/nvim/
 
 # make it the default
 $(pwd)/update_alternatives.sh

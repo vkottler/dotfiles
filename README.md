@@ -12,7 +12,7 @@ jank as possible.
 
 ## Usage
 
-Run commands from your checkout (inside this directory).
+Run commands from the `bash` directory of your checkout.
 
 ### Ubuntu (or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
 
@@ -22,10 +22,10 @@ Run commands from your checkout (inside this directory).
 packages
 1. `./`[`setup_grip.sh`](setup_grip.sh) adds the `md` alias to locally host
 rendered [GitHub markdown](https://github.github.com/gfm/)
-1. `./`[`setup_rust.sh`](setup_rust.sh) installs and sets up environment
-variables for [Rust](https://www.rust-lang.org/)
 1. `./`[`setup_nvim.sh`](setup_nvim.sh) installs [Neovim](https://neovim.io/)
 and makes it a default terminal editor
+1. `./`[`setup_rust.sh`](setup_rust.sh) installs and sets up environment
+variables for [Rust](https://www.rust-lang.org/)
 1. `./`[`setup_vscode.sh`](setup_vscode.sh) installs and sets up
 [VSCodium](https://vscodium.com/)
 
