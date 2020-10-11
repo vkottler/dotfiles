@@ -5,8 +5,8 @@ bash/bin/.nvimlog
 bash/bin/neovim
 bash/bin/nvim
 
-bash/bin/code
-bash/bin/codium
-bash/bin/_codium
+bash/bin/_drawio
+bash/bin/drawio
+bash/bin/draw
 
 bash/.bash_includes/*.sh
