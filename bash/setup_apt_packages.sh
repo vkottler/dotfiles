@@ -12,4 +12,7 @@ sudo -H python3 -m pip install --upgrade pip
 # vim package manager and other installers
 sudo apt-get install -y curl ack-grep
 
+# powershell
+sudo snap install --classic powershell
+
 sudo apt-get autoremove -y

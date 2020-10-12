@@ -2,6 +2,8 @@
 
 source functions.sh
 
+git submodule update --init --recursive
+
 remove_and_link .vimrc ..
 mkdir -p $HOME/.vim
 rm -rf $HOME/.vim/$USER
