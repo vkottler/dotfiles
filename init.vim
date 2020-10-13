@@ -21,6 +21,8 @@ if !exists('g:vscode')
 
 	" include plugins
 	call IncludeScript("plugins")
+
+	colo slate
 else
 	call IncludeScript("vscode")
 endif
