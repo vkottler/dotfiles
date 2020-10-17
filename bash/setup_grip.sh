@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo -H pip3 install grip
+sudo -H pip3 install --upgrade grip
 
 source functions.sh
 link_dep grip.sh
