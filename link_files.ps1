@@ -1,18 +1,10 @@
 Import-Module .\ps1\functions.ps1 -Force
 
-$ProfileDir = [string]::Format("{0}\Documents\PowerShell", $env:USERPROFILE)
-$ProfileFilename = "Microsoft.PowerShell_profile.ps1"
-
-# sanity check we have the right file, we should refactor this to just use
-$ProfileFile = [string]::Format("{0}\{1}", $ProfileDir, $ProfileFilename)
-# use $PROFILE instead at some point
-if ( $ProfileFile -ne $PROFILE ) {
-    $ErrorStr = [string]::Format("fix script: {0} != {1}", $ProfileFile, $PROFILE)
-    Write-Error $ErrorStr
-    exit
-} else {
-    Link-Local "profile.ps1" $ProfileDir $ProfileFilename
-}
+# link our PowerShell profile
+$ProfileFilename = Split-Path $PROFILE -leaf
+$ProfileDir = Split-Path $PROFILE
+$SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "ps1")
+Link-Local "profile.ps1" $ProfileDir $ProfileFilename -SrcRoot $SrcRoot
 
 Link-Local ".vimrc"
 Link-Local "vim" $HOME\.vim $env:UserName
