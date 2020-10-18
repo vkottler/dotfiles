@@ -56,7 +56,12 @@ function Run-SubShell {
 	}
 
 	if ( $AsAdmin ) {
-		Start-Process PowerShell -Verb runAs -ArgumentList $CommandArgs
+		# check if we're already elevated, no idea why this is so hard
+		if (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+			& $Command
+		} else {
+			Start-Process PowerShell -Verb runAs -ArgumentList $CommandArgs
+		}
 	} else {
 		Start-Process PowerShell -ArgumentList $CommandArgs
 	}

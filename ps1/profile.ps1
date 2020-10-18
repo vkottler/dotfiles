@@ -1,4 +1,4 @@
-Import-Module $HOME\dotfiles\ps1\functions.ps1 -Force
+Import-Module $HOME\functions.ps1 -Force
 
 # clone posh-git if necessary
 if ( -Not ( Test-Path $HOME\posh-git ) ) {
