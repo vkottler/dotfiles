@@ -1,9 +1,11 @@
 # export BROWSER="/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
 export BROWSER="$HOME/bin/wsl_browser.sh"
 
-# https://github.com/rust-lang/rustup/issues/2206
-export RDOC_LOC=`rustup doc --path`
-alias rdocs='"$BROWSER" `wslpath -w $RDOC_LOC`'
+if command -v rustup; then
+    # https://github.com/rust-lang/rustup/issues/2206
+    export RDOC_LOC=`rustup doc --path`
+    alias rdocs='"$BROWSER" `wslpath -w $RDOC_LOC`'
+fi
 
 # make it so we always start in our home directory
 if [ ! -n "$WSL_FIRST_LOAD" ]; then
