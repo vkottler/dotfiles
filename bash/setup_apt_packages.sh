@@ -6,7 +6,8 @@ sudo apt-get update && sudo apt-get upgrade -y
 # echo -e "\nHidden=true\n" | sudo tee --append /etc/xdg/autostart/tracker-extract.desktop /etc/xdg/autostart/tracker-miner-apps.desktop /etc/xdg/autostart/tracker-miner-fs.desktop /etc/xdg/autostart/tracker-miner-user-guides.desktop /etc/xdg/autostart/tracker-store.desktop > /dev/null
 
 # python
-sudo apt-get install -y python3 python3-pip python-is-python3 openssh-server libssl-dev
+sudo apt-get install -y python3 python3-pip python-is-python3 openssh-server \
+	libssl-dev net-tools
 sudo -H python3 -m pip install --upgrade pip ansible
 
 # vim package manager and other installers

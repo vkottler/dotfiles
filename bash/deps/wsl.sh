@@ -14,8 +14,9 @@ if [ ! -n "$WSL_FIRST_LOAD" ]; then
 
 	# things to do if we're not an ssh session
 	if [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then
-		# start sshd (idempotent)
-		sudo /etc/init.d/ssh start
+		# start sshd (idempotent), commented out for now because
+		# apparently windows-native runs an ssh daemon, wtf?
+		#sudo /etc/init.d/ssh start
 
 		# show motd
 		if [ -d /etc/update-motd.d ]; then
