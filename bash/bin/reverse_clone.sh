@@ -27,8 +27,12 @@ echo "#!/bin/bash" > $TMP_SCRIPT
 chmod +x $TMP_SCRIPT
 echo "set -e" >> $TMP_SCRIPT
 echo "git clone $(hostname):$SRC_PATH $SRC_PATH" >> $TMP_SCRIPT
-echo "cd $SRC_PATH/bash && ./link_files.sh"
+echo "cd $SRC_PATH/bash && ./link_files.sh" >> $TMP_SCRIPT
+echo "rm ~/reverse_clone.sh" >> $TMP_SCRIPT
 
 # copy the script over then remove it
 scp $TMP_SCRIPT $USER@$2:~/reverse_clone.sh
 rm $TMP_SCRIPT
+
+# run the script
+ssh $USER@$2 ~/reverse_clone.sh
