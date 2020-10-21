@@ -39,3 +39,16 @@ get_latest_release() {
     grep '"tag_name":' |                                            # Get tag line
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
+
+add_file_to_remote() {
+	ping -c 1 $1 >/dev/null
+
+	if ssh $USER@$1 stat $2 \> /dev/null 2\>\&1
+	then
+		echo "'$2' exists on '$1', skipping"
+	else
+		printf "moving '%s' to '%s' ... " $2 $1
+		rsync -a --ignore-existing $2 $USER@$1:$2
+		echo "done"
+	fi
+}

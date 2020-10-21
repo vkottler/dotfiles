@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source functions.sh
+source bin/functions.sh
 
 git submodule update --init --recursive
 
