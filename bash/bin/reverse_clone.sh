@@ -21,5 +21,14 @@ if ssh $USER@$2 test -d $SRC_PATH; then
 	exit 1
 fi
 
-# clone our checkout onto their machine
-ssh $USER@$2 git clone $(hostname):$SRC_PATH $SRC_PATH
+# send over a script, otherwise everything gets weird through ssh tunnel
+TMP_SCRIPT=/tmp/reverse_clone.sh
+echo "#!/bin/bash" > $TMP_SCRIPT
+chmod +x $TMP_SCRIPT
+echo "set -e" >> $TMP_SCRIPT
+echo "git clone $(hostname):$SRC_PATH $SRC_PATH" >> $TMP_SCRIPT
+echo "cd $SRC_PATH/bash && ./link_files.sh"
+
+# copy the script over then remove it
+scp $TMP_SCRIPT $USER@$2:~/reverse_clone.sh
+rm $TMP_SCRIPT
