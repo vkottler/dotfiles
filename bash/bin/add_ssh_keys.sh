@@ -7,6 +7,9 @@ PRIV_KEY=$SSH_DIR/id_rsa
 PUBL_KEY=$PRIV_KEY.pub
 AUTH_KEYS=$SSH_DIR/authorized_keys
 
+# make sure the target directory exists
+ssh $USER@$1 mkdir -p $SSH_DIR
+
 # make our key authorized, first
 if ssh $USER@$1 stat $AUTH_KEYS \> /dev/null 2\>\&1
 then
