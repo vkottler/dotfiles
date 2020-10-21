@@ -40,8 +40,12 @@ get_latest_release() {
     sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
 }
 
-add_file_to_remote() {
+attempt_ping() {
 	ping -c 1 $1 >/dev/null
+}
+
+add_file_to_remote() {
+	attempt_ping $1
 
 	if ssh $USER@$1 stat $2 \> /dev/null 2\>\&1
 	then
