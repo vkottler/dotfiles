@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 # python
 sudo apt-get install -y python3 python3-pip python-is-python3 openssh-server \
-	libssl-dev net-tools
+	libssl-dev net-tools python3-venv
 sudo -H python3 -m pip install --upgrade pip ansible
 
 # vim package manager and other installers
