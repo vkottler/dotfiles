@@ -32,6 +32,7 @@
             // Put settings here that you want to apply to all profiles.
             "useAcrylic": true,
             "closeOnExit": "always",
+            "acrylicOpacity": 0.7,
             "fontSize": 14
         },
         "list":
