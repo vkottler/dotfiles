@@ -11,20 +11,20 @@ call IncludeScript("simple_keybinds")
 
 " visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
-map <leader>l :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 
 " show trailing whitespace and spaces for tabs
-map <leader>L /\s\+$<CR>
+nnoremap <leader>L /\s\+$<CR>
 
 " navigating tabs
-map <leader>t :tab split +Explore<CR>
-map <leader>T :Explore<CR>
+nnoremap <leader>t :tab split +Explore<CR>
+nnoremap <leader>T :Explore<CR>
 
 " WinMove from https://github.com/nicknisi/vim-workshop/
-map <C-h> :call WinMove('h')<cr>
-map <C-j> :call WinMove('j')<cr>
-map <C-k> :call WinMove('k')<cr>
-map <C-l> :call WinMove('l')<cr>
+nnoremap <C-h> :call WinMove('h')<cr>
+nnoremap <C-j> :call WinMove('j')<cr>
+nnoremap <C-k> :call WinMove('k')<cr>
+nnoremap <C-l> :call WinMove('l')<cr>
 
 " Prevent netrw's <C-l> overriding our mapping
 augroup netrw_mapping
@@ -52,4 +52,5 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " enable folding, set binds
 set foldenable
-nnoremap <space> za
+nnoremap f za
+nnoremap F zA
