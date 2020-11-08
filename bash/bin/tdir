@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tmux attach-session -t $1 -c `pwd`
