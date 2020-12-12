@@ -60,9 +60,9 @@ function Run-SubShell {
 		if (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
 			& $Command
 		} else {
-			Start-Process PowerShell -Verb runAs -ArgumentList $CommandArgs
+			Start-Process pwsh -Verb runAs -ArgumentList $CommandArgs
 		}
 	} else {
-		Start-Process PowerShell -ArgumentList $CommandArgs
+		Start-Process pwsh -ArgumentList $CommandArgs
 	}
 }

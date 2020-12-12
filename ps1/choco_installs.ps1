@@ -4,7 +4,7 @@
 # consider: discord, audacity
 choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac screentogif drawio
 choco upgrade -y vscodium --pre
-choco upgrade -y neovim --pre
+choco upgrade -y neovim
 
 # install base extensions
 codium --install-extension asvetliakov.vscode-neovim
@@ -19,5 +19,9 @@ if ( -Not ( Test-Path $PlugDest ) ) {
 # python global packages
 pip install --upgrade pip
 pip install --upgrade grip
+
+# set git identity
+git config --global user.email "vaughnkottler@gmail.com"
+git config --global user.name "Vaughn Kottler"
 
 choco list -localonly
