@@ -31,6 +31,9 @@ variables for [Rust](https://www.rust-lang.org/)
 
 ### Windows 10
 
+It may be necessary to execute `Set-ExecutionPolicy Bypass` to execute `PowerShell`
+scripts, as well as running `PowerShell` as an administrator.
+
 1. `.\`[`setup.ps1`](setup.ps1) may need to run multiple times does a few things:
     1. Tries to install [PowerShell 7](https://github.com/PowerShell/PowerShell)
     via `.\`[`install_ps7.ps1`](install_ps7.ps1)
