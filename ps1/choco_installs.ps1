@@ -2,7 +2,8 @@
 #requires -runasadministrator
 
 # consider: discord, audacity
-choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac screentogif drawio
+choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac
+choco upgrade -y screentogif drawio discord spotify
 choco upgrade -y vscodium --pre
 choco upgrade -y neovim
 
