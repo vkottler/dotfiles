@@ -26,6 +26,6 @@ if ( $LastExitCode -eq 0 ) {
     Write-Output "Install failed."
 }
 # remove installer
-Remove-Item -Force $OutFilePath
+# Remove-Item -Force $OutFilePath
 
 wsl --set-default-version 2

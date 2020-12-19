@@ -1,4 +1,5 @@
 *.swp
+*.msi
 
 bash/bin/_nvim
 bash/bin/.nvimlog
