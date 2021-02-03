@@ -28,8 +28,8 @@ nnoremap <C-l> :call WinMove('l')<cr>
 
 " Prevent netrw's <C-l> overriding our mapping
 augroup netrw_mapping
-    autocmd!
-    autocmd FileType netrw map <buffer> <C-l> :call WinMove('l')<cr>
+    au!
+    au FileType netrw map <buffer> <C-l> :call WinMove('l')<cr>
 augroup END
 
 " move to the window in the direction shown, or create a new window
@@ -46,9 +46,13 @@ function! WinMove(key)
     endif
 endfunction
 
-" yaml-editing settings
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup indent_settings
+    au!
+    au BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
 
 " enable folding, set binds
 set foldenable
