@@ -8,6 +8,7 @@ remove_and_link .vimrc ..
 mkdir -p $HOME/.vim
 rm -rf $HOME/.vim/$USER
 ln -sf $(pwd)/../vim $HOME/.vim/$USER
+ln -sf $HOME/.vim/$USER $HOME/.vim/root
 
 remove_and_link .tmux.conf ..
 
