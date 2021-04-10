@@ -6,6 +6,7 @@ choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac
 choco upgrade -y screentogif drawio discord spotify
 choco upgrade -y vscodium --pre
 choco upgrade -y neovim
+choco upgrade -y obs-studio
 
 # install base extensions
 codium --install-extension asvetliakov.vscode-neovim
