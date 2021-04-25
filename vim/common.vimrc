@@ -49,9 +49,11 @@ endfunction
 augroup indent_settings
     au!
     au BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+    au BufNewFile,BufReadPost *.{j2} set filetype=jinja foldmethod=indent
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     au FileType html setlocal ts=2 sts=2 sw=2 expandtab
     au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType jinja setlocal ts=2 sts=2 sw=2 expandtab
     au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
