@@ -22,6 +22,7 @@ remove_and_link .tmux.conf ..
 
 remove_and_link .bash_aliases .
 remove_and_link .bashrc .
+remove_and_link .gdbinit .
 
 remove_and_link_dir bin
 remove_and_link_dir .bash_includes
