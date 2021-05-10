@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source functions.sh
+source bin/functions.sh
 
 # install neovim if necessary
 if ! command -v nvim >/dev/null; then
