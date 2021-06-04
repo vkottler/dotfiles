@@ -58,6 +58,7 @@ augroup indent_settings
     au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
     au FileType c setlocal ts=4 sts=4 sw=4 expandtab
     au FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
+    au FileType text setlocal paste
 augroup END
 
 " enable folding, set binds
