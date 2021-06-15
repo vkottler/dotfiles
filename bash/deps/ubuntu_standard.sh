@@ -95,4 +95,6 @@ if [[ `uname -v` == *"Ubuntu"* ]]; then
 		export PYTHON_VERSION=3.7
 		alias python='python$PYTHON_VERSION'
 	fi
+else
+	export PYTHON_VERSION=3.8
 fi

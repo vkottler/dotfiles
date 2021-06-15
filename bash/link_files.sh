@@ -20,6 +20,7 @@ popd >/dev/null
 
 remove_and_link .tmux.conf ..
 
+remove_and_link .profile .
 remove_and_link .bash_aliases .
 remove_and_link .bashrc .
 remove_and_link .gdbinit .
