@@ -1,0 +1,14 @@
+--recurse=yes
+--exclude=.git
+--exclude=.svn
+--exclude=BUILD
+--exclude=vendor/*
+--exclude=node_modules/*
+--exclude=db/*
+--exclude=log/*
+--exclude=bazel-*
+--exclude=bin
+--exclude=build
+--exclude=__pycache__
+--exclude=\*.swp
+--exclude=\*.pyc
