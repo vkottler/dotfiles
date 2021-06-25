@@ -5,6 +5,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'pprovost/vim-ps1'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " We could format on save, but I find that it can hang when you save knowing
