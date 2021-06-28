@@ -18,6 +18,10 @@ function Run-Administrator([string]$Command) {
 	Run-SubShell $Command -AsAdmin $true -PrintCommand $true
 }
 
+function Fls-Stub {
+	Invoke-Expression "explorer ."
+}
+
 function Run-Grip {
 	$GripTokenPath = [string]::Format("{0}\grip_access_token.txt", $HOME)
 	if ( Test-Path $GripTokenPath ) {
@@ -40,5 +44,6 @@ Set-Alias -Name code -Value codium
 Set-Alias -Name vscode -Value codium
 Set-Alias -Name sudo -Value Run-Administrator
 Set-Alias -Name md -Value Run-Grip -Option AllScope
+Set-Alias -Name fls -Value Fls-Stub
 
 Write-Output $PSVersionTable.PSVersion
