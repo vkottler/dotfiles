@@ -7,6 +7,7 @@ choco upgrade -y screentogif drawio discord spotify
 choco upgrade -y vscodium --pre
 choco upgrade -y neovim
 choco upgrade -y obs-studio
+choco upgrade -y python
 
 # install base extensions
 codium --install-extension asvetliakov.vscode-neovim
