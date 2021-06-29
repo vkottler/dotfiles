@@ -1,9 +1,9 @@
 #requires -version 4.0
 #requires -runasadministrator
 
-# consider: discord, audacity
+# install things that we will probably always use on a windows box
 choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac
-choco upgrade -y screentogif drawio discord spotify
+choco upgrade -y screentogif drawio discord spotify audacity bitwig
 choco upgrade -y vscodium --pre
 choco upgrade -y neovim
 choco upgrade -y obs-studio
