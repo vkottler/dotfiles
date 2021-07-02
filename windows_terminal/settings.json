@@ -35,6 +35,7 @@
             "acrylicOpacity": 0.7,
             "fontSize": 14,
             "bellStyle": "none",
+            "colorScheme": "Tango Dark"
         },
         "list":
         [
