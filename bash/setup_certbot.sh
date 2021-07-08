@@ -16,3 +16,7 @@ echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; 
 
 # make sure it's working
 sudo certbot renew --dry-run
+
+# add sane permissions to cert directories
+sudo chmod 0755 /etc/letsencrypt/live
+sudo chmod 0755 /etc/letsencrypt/archive
