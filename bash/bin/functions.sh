@@ -4,17 +4,22 @@ HOME_BIN=$HOME/bin
 
 remove_and_link() {
 	mkdir -p $HOME/`dirname $1`
+	rm -f $HOME/$1
 	ln -sf $(pwd)/$2/$1 $HOME/$1
+	echo "linking file '$(pwd)/$2/$1' to '$HOME/$1'"
 }
 
 remove_and_link_dir() {
-	rm -f $HOME/$1
 	mkdir -p $(pwd)/$1
-	ln -s $(pwd)/$1 $HOME/$1
+	rm -f $HOME/$1
+	ln -sf $(pwd)/$1 $HOME/$1
+	echo "linking directory '$(pwd)/$1' to '$HOME/$1'"
 }
 
 link_dep() {
+	rm -f $HOME/.bash_includes/$1
 	ln -sf $(pwd)/deps/$1 $HOME/.bash_includes/$1
+	echo "linking '$(pwd)/deps/$1' into .bash_includes"
 }
 
 source_if_wsl() {

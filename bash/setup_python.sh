@@ -8,7 +8,7 @@ if [ -z "$PYTHON_VERSION" ]; then
 fi
 
 sudo apt-get install -y python3 python-is-python3 python3-pip python3-venv python-dev-is-python3
-python -m pip install vmklib 'python-language-server[all]'
+python -m pip install --upgrade vmklib 'python-language-server[all]'
 
 # create the standard venv if necessary
 HOME_VENV=$HOME/venv$PYTHON_VERSION
