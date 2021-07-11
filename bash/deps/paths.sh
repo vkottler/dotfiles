@@ -3,7 +3,7 @@ PATH_ENTRIES="$HOME/bin"
 PATH_ENTRIES+=" $HOME/.local/bin"
 
 # python
-PATH_ENTRIES+=" $HOME/venv$PYTHON_VERSION/bin"
+PATH_ENTRIES+=" $HOME/venv/bin"
 
 # rust
 PATH_ENTRIES+=" $HOME/.cargo/bin"

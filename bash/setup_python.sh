@@ -16,6 +16,10 @@ if [ ! -d $HOME_VENV ]; then
 	python -m venv $HOME_VENV
 fi
 
+# create a symlink for convenience (i.e. adding to path)
+rm -f $HOME/venv
+ln -sf $HOME/venv$PYTHON_VERSION $HOME/venv
+
 # install useful packages
 $HOME_VENV/bin/pip install --upgrade wheel vmklib grip
 
