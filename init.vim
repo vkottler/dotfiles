@@ -16,7 +16,7 @@ function! IncludeScript(file)
 endfunction
 
 if !exists('g:vscode')
-	colo slate
+	colo torte
 
 	" include shared settings
 	call IncludeScript("common")
