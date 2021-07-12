@@ -16,13 +16,13 @@ function! IncludeScript(file)
 endfunction
 
 if !exists('g:vscode')
+	colo slate
+
 	" include shared settings
 	call IncludeScript("common")
 
 	" include plugins
 	call IncludeScript("plugins")
-
-	colo slate
 else
 	call IncludeScript("vscode")
 endif
