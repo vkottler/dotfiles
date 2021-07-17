@@ -6,9 +6,13 @@ git submodule update --init --recursive
 
 remove_and_link .vimrc ..
 mkdir -p $HOME/.vim
-rm -rf $HOME/.vim/$USER
-ln -sf $(pwd)/../vim $HOME/.vim/$USER
-ln -sf $HOME/.vim/$USER $HOME/.vim/root
+
+if [ ! -L $HOME/.vim/$USER ]; then
+	ln -s $(pwd)/../vim $HOME/.vim/$USER
+fi
+if [ ! -L $HOME/.vim/root ]; then
+	ln -s $HOME/.vim/$USER $HOME/.vim/root
+fi
 
 # load external syntax files
 mkdir -p $HOME/.vim/syntax
