@@ -23,6 +23,12 @@ if !exists('g:vscode')
 
 	" include plugins
 	call IncludeScript("plugins")
+
+	" include a local .vimrc, if one exists
+	let local_vimrc = getcwd() . "/.vimrc"
+	if filereadable(local_vimrc)
+		exec "source " . local_vimrc
+	endif
 else
 	call IncludeScript("vscode")
 endif
