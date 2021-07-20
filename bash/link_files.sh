@@ -27,8 +27,14 @@ remove_and_link .tmux.conf ..
 remove_and_link .profile .
 remove_and_link .bash_aliases .
 remove_and_link .bashrc .
-remove_and_link .ctags .
 remove_and_link .gdbinit .
+
+# universal ctags needs to look in ~/.ctags.d/*.ctags
+remove_and_link .ctags .
+mkdir -p $HOME/.ctags.d
+if [ ! -L $HOME/.ctags.d/.ctags ]; then
+	ln -s $(pwd)/.ctags $HOME/.ctags.d/dotfiles.ctags
+fi
 
 remove_and_link_dir bin
 remove_and_link_dir .bash_includes

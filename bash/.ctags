@@ -12,3 +12,4 @@
 --exclude=__pycache__
 --exclude=\*.swp
 --exclude=\*.pyc
+--exclude=venv*
