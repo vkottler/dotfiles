@@ -10,6 +10,8 @@
 --exclude=bin
 --exclude=build
 --exclude=__pycache__
---exclude=\*.swp
---exclude=\*.pyc
+--exclude=*.swp
+--exclude=*.pyc
+--exclude=*.ini
+--exclude=*.ini
 --exclude=venv*
