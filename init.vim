@@ -2,7 +2,14 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 if ! exists("loaded_files")
-	let loaded_files = [$MYVIMRC]
+	let curr_vimrc = resolve(expand($MYVIMRC))
+	let loaded_files = [curr_vimrc]
+
+	" ensure that .vimrc in $HOME isn't loaded (or re-loaded)
+	let curr_vimrc = resolve(expand("~/.vimrc"))
+	if index(loaded_files, curr_vimrc) == -1
+		call add(loaded_files, curr_vimrc)
+	endif
 endif
 
 if ! exists("*LoadFile")
@@ -41,11 +48,9 @@ if !exists('g:vscode')
 	call IncludeScript("plugins")
 
 	" include a local .vimrc, if one exists
-	if resolve(expand(getcwd())) !=  resolve(expand("~"))
 	let local_vimrc = getcwd() . "/.vimrc"
-		if filereadable(local_vimrc)
-			call LoadFile(local_vimrc)
-		endif
+	if filereadable(local_vimrc)
+		call LoadFile(local_vimrc)
 	endif
 else
 	call IncludeScript("vscode")
