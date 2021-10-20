@@ -8,6 +8,7 @@ choco upgrade -y vscodium --pre
 choco upgrade -y neovim
 choco upgrade -y obs-studio
 choco upgrade -y python
+choco upgrade -y winrar
 
 # install base extensions
 codium --install-extension asvetliakov.vscode-neovim
