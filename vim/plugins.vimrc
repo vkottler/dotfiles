@@ -13,6 +13,7 @@ call plug#end()
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_yaml_checkers = ["yamllint"]
 
 " We could format on save, but I find that it can hang when you save knowing
 " something is already wrong.
