@@ -15,7 +15,7 @@ endif
 if ! exists("*LoadFile")
 	function! LoadFile(file)
 		let l:include_path = resolve(expand(a:file))
-		if index(g:loaded_files, l:include_path) == -1
+		if filereadable(l:include_path) && index(g:loaded_files, l:include_path) == -1
 			exec "source " . l:include_path
 			call add(g:loaded_files, l:include_path)
 		endif
@@ -33,8 +33,11 @@ if ! exists("*IncludeScript")
 			echo "Can't find include path via $USER or $USERNAME"
 			finish
 		endif
-		let l:include_path .= a:file . ".vimrc"
-		call LoadFile(l:include_path)
+
+		" check all viable suffixes
+		for suffix in [".vim", ".vimrc"]
+			call LoadFile(l:include_path . a:file . suffix)
+		endfor
 	endfunction
 endif
 
