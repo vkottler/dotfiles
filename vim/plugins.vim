@@ -16,6 +16,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_yaml_checkers = ["yamllint"]
 
 " black settings
+let g:black_linelength = 79
 autocmd BufWritePre *.py execute ':Black'
 
 " We could format on save, but I find that it can hang when you save knowing
