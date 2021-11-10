@@ -5,21 +5,7 @@ set -x
 
 # install neovim if necessary
 if ! command -v nvim >/dev/null; then
-	APP_IMAGE=nvim.appimage
-
-	# download the app image
-	wget https://github.com/neovim/neovim/releases/download/nightly/$APP_IMAGE \
-		-O $HOME_BIN/$APP_IMAGE
-	chmod u+x $HOME_BIN/$APP_IMAGE
-
-	# extract and symbolic links
-	$HOME_BIN/$APP_IMAGE --appimage-extract
-	rm -rf $HOME_BIN/_nvim
-	mv -f $(pwd)/squashfs-root $HOME_BIN/_nvim
-
-	ln -fs $HOME_BIN/_nvim/AppRun $HOME_BIN/neovim
-	ln -fs $HOME_BIN/neovim $HOME_BIN/nvim
-	rm -f $HOME_BIN/$APP_IMAGE
+	source update_nvim.sh
 fi
 
 # link standard vimrc
