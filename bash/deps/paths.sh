@@ -7,6 +7,7 @@ PATH_ENTRIES+=" $HOME/venv/bin"
 
 # rust
 PATH_ENTRIES+=" $HOME/.cargo/bin"
+PATH_ENTRIES+=" /usr/local/toolchains/rust/cargo/bin"
 
 # node
 PATH_ENTRIES+=" $HOME/.npm-packages/bin"
