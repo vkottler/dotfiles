@@ -4,7 +4,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-syntastic/syntastic'
 Plug 'pprovost/vim-ps1'
-Plug 'tpope/vim-fugitive'
+" not working right now
+" Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
