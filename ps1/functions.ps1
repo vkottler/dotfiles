@@ -24,10 +24,10 @@ function Link-Local {
     }
 
     New-Item -Type Directory -Path $DestRoot -ErrorAction SilentlyContinue
-    $Command = [string]::Format("cmd /c mklink {0} {1}", $DestAbs, $SrcAbs)
+    $Command = [string]::Format("cmd /c mklink '{0}' '{1}'", $DestAbs, $SrcAbs)
     $result = Invoke-Expression $Command
     if ( $result -eq $null ) {
-        $ErrorStr = [string]::Format("couldn't link '{0}' to '{1}'", $DestAbs, $SrcAbs)
+        $ErrorStr = [string]::Format("couldn't link '{0}' to '{1}'", $SrcAbs, $DestAbs)
         Write-Error $ErrorStr
         exit
     } else {

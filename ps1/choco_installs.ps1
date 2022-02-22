@@ -4,15 +4,23 @@
 # install things that we will probably always use on a windows box
 choco upgrade -y microsoft-windows-terminal git rust vlc slack chromium carnac
 choco upgrade -y screentogif drawio discord spotify audacity bitwig
-choco upgrade -y vscodium --pre
 choco upgrade -y neovim
 choco upgrade -y obs-studio
 choco upgrade -y python
 choco upgrade -y winrar
 
+# VSCodium isn't usable, see:
+# https://github.com/VSCodium/vscodium/discussions/832#discussioncomment-2225387
+# choco upgrade -y vscodium --pre
 # install base extensions
-codium --install-extension asvetliakov.vscode-neovim
-codium --install-extension dunstontc.viml
+# codium --install-extension asvetliakov.vscode-neovim
+# codium --install-extension dunstontc.viml
+
+# install Visual Studio Code
+choco upgrade -y vscode-insiders
+code-insiders.cmd --install-extension asvetliakov.vscode-neovim
+code-insiders.cmd --install-extension dunstontc.viml
+code-insiders.cmd --install-extension ms-vscode-remote.vscode-remote-extensionpack
 
 # install neovim plugin manager
 $PlugDest = "$HOME\vimfiles\autoload\plug.vim"

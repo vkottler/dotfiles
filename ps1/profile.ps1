@@ -40,10 +40,14 @@ function Run-Grip {
 # useful aliases
 Set-Alias -Name grep -Value Select-String
 Set-Alias -Name vim -Value nvim
-Set-Alias -Name code -Value codium
-Set-Alias -Name vscode -Value codium
 Set-Alias -Name sudo -Value Run-Administrator
 Set-Alias -Name md -Value Run-Grip -Option AllScope
 Set-Alias -Name fls -Value Fls-Stub
+
+# https://github.com/VSCodium/vscodium/discussions/832#discussioncomment-2225387
+# Set-Alias -Name code -Value codium
+# Set-Alias -Name vscode -Value codium
+Set-Alias -Name code -Value code-insiders.cmd
+Set-Alias -Name vscode -Value code-insiders.cmd
 
 Write-Output $PSVersionTable.PSVersion

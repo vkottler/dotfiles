@@ -15,8 +15,12 @@ Link-Local "init.vim" $HOME\AppData\Local\nvim
 
 # link vscode settings
 $SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "vscode")
-Link-Local "settings.json" $env:AppData\Code\User -SrcRoot $SrcRoot
-Link-Local "settings.json" $env:AppData\VSCodium\User -SrcRoot $SrcRoot
+$DstPaths = "Code", "Code - Insiders", "VSCodium"
+for ($i = 0; $i -lt $DstPaths.Length; $i++)
+{
+	$DstPath = [string]::Format("{0}\{1}\User", $env:AppData, $DstPaths[$i])
+	Link-Local "settings.json" $DstPath -SrcRoot $SrcRoot
+}
 
 # windows terminal configuration
 $WinTermLoc = ls $HOME\AppData\Local\Packages | Select-String WindowsTerminal
