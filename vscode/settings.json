@@ -17,5 +17,6 @@
 
     "remote.SSH.remotePlatform": {
         "vkottler-zbook": "linux"
-    }
+    },
+    "window.zoomLevel": 2
 }

@@ -21,6 +21,7 @@ choco upgrade -y vscode-insiders
 code-insiders.cmd --install-extension asvetliakov.vscode-neovim
 code-insiders.cmd --install-extension dunstontc.viml
 code-insiders.cmd --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code-insiders.cmd --install-extension ms-python.python
 
 # install neovim plugin manager
 $PlugDest = "$HOME\vimfiles\autoload\plug.vim"
