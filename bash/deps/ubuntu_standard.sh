@@ -88,15 +88,18 @@ if ! shopt -oq posix; then
 fi
 
 export XDG_CONFIG_HOME=$HOME/.config
+DEFAULT_PYTHON=3.8
 
 # set some things if we're on a deprecated platform
 if [[ `uname -v` == *"Ubuntu"* ]]; then
 	if lsb_release -r | grep 16.04 >/dev/null 2>&1 ; then
 		export PYTHON_VERSION=3.7
 		alias python='python$PYTHON_VERSION'
-	else
-		export PYTHON_VERSION=3.8
 	fi
+fi
+
+if [ -z "$PYTHON_VERSION" ]; then
+	export PYTHON_VERSION=$DEFAULT_PYTHON
 fi
 
 export LC_ALL=en_US.UTF-8
