@@ -32,7 +32,7 @@ remove_and_link .gdbinit .
 # universal ctags needs to look in ~/.ctags.d/*.ctags
 remove_and_link .ctags .
 mkdir -p $HOME/.ctags.d
-if [ ! -L $HOME/.ctags.d/.ctags ]; then
+if [ ! -L $HOME/.ctags.d/dotfiles.ctags ]; then
 	ln -s $(pwd)/.ctags $HOME/.ctags.d/dotfiles.ctags
 fi
 

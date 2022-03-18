@@ -50,6 +50,7 @@ augroup indent_settings
     au!
     au BufNewFile,BufReadPost *.j2 set filetype=jinja foldmethod=indent
     au BufNewFile,BufReadPost *.html.j2 set filetype=htmljinja foldmethod=indent
+    au BufNewFile,BufReadPost *.eyaml set filetype=jinja foldmethod=indent
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab foldmethod=indent
     au FileType html setlocal ts=2 sts=2 sw=2 expandtab
     au FileType css setlocal ts=2 sts=2 sw=2 expandtab
