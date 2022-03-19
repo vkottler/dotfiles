@@ -1,6 +1,5 @@
 # common / generic
-PATH_ENTRIES="$HOME/bin"
-PATH_ENTRIES+=" $HOME/.local/bin"
+PATH_ENTRIES="$HOME/.local/bin"
 
 # python
 PATH_ENTRIES+=" $HOME/venv/bin"
@@ -20,4 +19,4 @@ for ENTRY in $PATH_ENTRIES
 do
 	PATH+=":$ENTRY"
 done
-export PATH=$PATH
+export PATH="$HOME/bin:$PATH"
