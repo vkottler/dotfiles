@@ -1,8 +1,5 @@
-# common / generic
-PATH_ENTRIES="$HOME/.local/bin"
-
 # python
-PATH_ENTRIES+=" $HOME/venv/bin"
+PATH_ENTRIES="$HOME/venv/bin"
 
 # rust
 PATH_ENTRIES+=" $HOME/.cargo/bin"
@@ -19,4 +16,4 @@ for ENTRY in $PATH_ENTRIES
 do
 	PATH+=":$ENTRY"
 done
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"

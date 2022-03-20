@@ -61,3 +61,19 @@ add_file_to_remote() {
 		echo "done"
 	fi
 }
+
+THIRD_PARTY=$HOME/third-party
+
+clone_third_party_github() {
+	mkdir -p $THIRD_PARTY
+	pushd $THIRD_PARTY >/dev/null
+
+	if [ ! -d $2 ]; then
+		git clone git@github.com:$1/$2.git
+		echo "Cloned '$1/$2'."
+	else
+		echo "Not cloning '$1/$2', already present."
+	fi
+
+	popd >/dev/null
+}

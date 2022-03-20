@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source bin/functions.sh
+REPO=`git rev-parse --show-toplevel`
+source $REPO/bash/common.sh
 
 git submodule update --init --recursive
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source functions.sh
+REPO=`git rev-parse --show-toplevel`
+source $REPO/bash/common.sh
 
 snap install --classic codium
 

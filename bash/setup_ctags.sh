@@ -1,26 +1,15 @@
-#!/bin/bash -e
+#!/bin/bash
 
-# see https://docs.ctags.io/en/latest/autotools.html#gnu-linux-distributions
-sudo apt install -y \
-    gcc make \
-    pkg-config autoconf automake \
-    python3-docutils \
-    libseccomp-dev \
-    libjansson-dev \
-    libyaml-dev \
-    libxml2-dev
+REPO=`git rev-parse --show-toplevel`
+source $REPO/bash/common.sh
 
-mkdir -p $HOME/third-party
-pushd $HOME/third-party >/dev/null
-
-git clone git@github.com:universal-ctags/ctags.git
-pushd ctags
+clone_third_party_github universal-ctags ctags
+pushd $THIRD_PARTY/ctags
 
 # build and install
 ./autogen.sh
-./configure
+./configure --prefix=$THIRD_PARTY_PREFIX
 make
-sudo make install
+make install
 
-popd >/dev/null
 popd >/dev/null

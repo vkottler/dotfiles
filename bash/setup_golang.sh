@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source functions.sh
+REPO=`git rev-parse --show-toplevel`
+source $REPO/bash/common.sh
 
 VERSION=1.15.2
 FILE=go$VERSION.linux-amd64.tar.gz
