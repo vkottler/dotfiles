@@ -54,13 +54,13 @@ link_dep paths.sh
 # load new configurations
 source $HOME/.bashrc
 
-LINK_DIR=links
+LINK_DIR=$REPO/bash/links
 
 # add wsl if it makes sense to
 source_if_wsl $LINK_DIR/link_wsl.sh $LINK_DIR/link_not_wsl.sh
 
-# ubuntu-specific operations
-source_if_ubuntu $LINK_DIR/link_ubuntu.sh $LINK_DIR/noop.sh
-
 # load new configurations
 source $HOME/.bashrc
+
+# ubuntu-specific operations
+source_if_ubuntu $LINK_DIR/link_ubuntu.sh $LINK_DIR/noop.sh

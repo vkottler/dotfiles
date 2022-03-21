@@ -3,11 +3,13 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-exit_if_command ninja
+PROJ=ninja
 
-clone_third_party_github ninja-build ninja
+exit_if_command $PROJ
 
-pushd $THIRD_PARTY/ninja >/dev/null
+clone_third_party_github ninja-build $PROJ
+
+pushd $THIRD_PARTY/$PROJ >/dev/null
 
 # Build and install ninja.
 ./configure.py --bootstrap

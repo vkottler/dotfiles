@@ -3,15 +3,13 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-PROJ=ctags
+PROJ=autoconf
 
-exit_if_command $PROJ
+clone_third_party_gnu $PROJ
 
-clone_third_party_github universal-$PROJ $PROJ
 pushd $THIRD_PARTY/$PROJ >/dev/null
 
-# build and install
-./autogen.sh
+./bootstrap
 ./configure $PREFIX_ARG
 make
 make install

@@ -13,7 +13,7 @@ clone_third_party_github Kitware CMake
 pushd $THIRD_PARTY/CMake >/dev/null
 
 ARGS="--parallel=`nproc`"
-ARGS+=" --prefix=$THIRD_PARTY_PREFIX"
+ARGS+=" $PREFIX_ARG"
 
 # Build docs with sphinx if its installed.
 if command -v sphinx-build >/dev/null; then

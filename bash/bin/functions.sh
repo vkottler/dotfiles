@@ -114,6 +114,22 @@ ensure_home_venv() {
 	HOME_PIP="$HOME_PYTHON -m pip"
 }
 
+get_gnu_release() {
+	pushd $THIRD_PARTY >/dev/null
+
+	# Download an archive if one isn't present.
+	if [ ! -f $1-$2.tar.gz ]; then
+		wget https://ftp.gnu.org/gnu/$1/$1-$2.tar.gz
+	fi
+
+	# Unpack it.
+	if [ ! -d $1-$2 ]; then
+		tar xvf $1-$2.tar.gz
+	fi
+
+	popd >/dev/null
+}
+
 exit_if_command() {
 	if command -v $1 >/dev/null; then
 		echo "Command '$1' found, exiting early."

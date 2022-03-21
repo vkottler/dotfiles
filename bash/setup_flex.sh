@@ -3,17 +3,18 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-PROJ=ctags
+call_setup bison
+
+PROJ=flex
 
 exit_if_command $PROJ
 
-clone_third_party_github universal-$PROJ $PROJ
+clone_third_party_github westes $PROJ
+
 pushd $THIRD_PARTY/$PROJ >/dev/null
 
-# build and install
 ./autogen.sh
 ./configure $PREFIX_ARG
-make
-make install
+make && make install
 
 popd >/dev/null
