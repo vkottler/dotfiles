@@ -113,3 +113,12 @@ ensure_home_venv() {
 	HOME_PYTHON="$HOME_VENV/bin/python"
 	HOME_PIP="$HOME_PYTHON -m pip"
 }
+
+exit_if_command() {
+	if command -v $1 >/dev/null; then
+		echo "Command '$1' found, exiting early."
+		exit 0
+	fi
+
+	echo "Command '$1' not found, continuing."
+}

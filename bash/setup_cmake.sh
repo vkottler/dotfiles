@@ -3,6 +3,11 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
+call_setup ninja
+call_setup sphinx
+
+exit_if_command cmake
+
 clone_third_party_github Kitware CMake
 
 pushd $THIRD_PARTY/CMake >/dev/null

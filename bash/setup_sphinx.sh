@@ -3,6 +3,8 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
+exit_if_command sphinx-build
+
 ensure_home_venv
 clone_third_party_github sphinx-doc sphinx
 

@@ -3,6 +3,8 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
+exit_if_command ninja
+
 clone_third_party_github ninja-build ninja
 
 pushd $THIRD_PARTY/ninja >/dev/null
