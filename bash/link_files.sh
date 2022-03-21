@@ -24,9 +24,13 @@ fi
 mkdir -p $HOME/.vim/syntax
 pushd $HOME/.vim/syntax >/dev/null
 
-test -L jinja.vim || ln -s $REPO/third-party/vim/jinja.vim
+for SYNTAX_FILE in jinja.vim htmljinja.vim
+do
+	test -f $SYNTAX_FILE && rm $SYNTAX_FILE
+	test -L $SYNTAX_FILE || ln -s $REPO/third-party/vim/$SYNTAX_FILE
+done
+
 test -L j2.vim || ln -s jinja.vim j2.vim
-test -L htmljinja.vim || ln -s $REPO/third-party/vim/htmljinja.vim
 
 popd >/dev/null
 
