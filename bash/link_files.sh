@@ -3,7 +3,12 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-git submodule update --init --recursive
+# Add config.site for ./configure awareness of .local installs.
+mkdir -p $THIRD_PARTY_PREFIX
+if [ ! -L $THIRD_PARTY_PREFIX/share/config.site ]; then
+	mkdir -p $THIRD_PARTY_PREFIX/share
+	ln -s $SCRIPTS/config.site $THIRD_PARTY_PREFIX/share/config.site
+fi
 
 remove_and_link .vimrc ..
 mkdir -p $HOME/.vim

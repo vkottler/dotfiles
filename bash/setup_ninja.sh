@@ -5,7 +5,7 @@ source $REPO/bash/common.sh
 
 clone_third_party_github ninja-build ninja
 
-pushd $THIRD_PARTY/ninja
+pushd $THIRD_PARTY/ninja >/dev/null
 
 # Build and install ninja.
 ./configure.py --bootstrap

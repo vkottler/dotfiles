@@ -77,3 +77,39 @@ clone_third_party_github() {
 
 	popd >/dev/null
 }
+
+clone_third_party_gnu() {
+	mkdir -p $THIRD_PARTY
+	pushd $THIRD_PARTY >/dev/null
+
+	if [ ! -d $1 ]; then
+		git clone git://git.savannah.gnu.org/$1.git
+		echo "Cloned '$1'."
+	else
+		echo "Not cloning '$1', already present."
+	fi
+
+	popd >/dev/null
+}
+
+ensure_home_venv() {
+	if [ -z "$PYTHON_VERSION" ]; then
+		echo 'set $PYTHON_VERSION first'
+		exit 1
+	fi
+
+	# Create the standard venv if necessary.
+	HOME_VENV=$HOME/venv$PYTHON_VERSION
+	if [ ! -d $HOME_VENV ]; then
+		python$PYTHON_VERSION -m venv $HOME_VENV
+	fi
+
+	# Create a symlink for convenience (i.e. adding to path).
+	if [ ! -L $HOME/venv ]; then
+		ln -s $HOME/venv$PYTHON_VERSION $HOME/venv
+	fi
+
+	# Set useful variables.
+	HOME_PYTHON="$HOME_VENV/bin/python"
+	HOME_PIP="$HOME_PYTHON -m pip"
+}
