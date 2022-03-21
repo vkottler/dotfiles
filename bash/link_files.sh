@@ -23,9 +23,11 @@ fi
 # load external syntax files
 mkdir -p $HOME/.vim/syntax
 pushd $HOME/.vim/syntax >/dev/null
-test -f jinja.vim || wget https://www.vim.org/scripts/download_script.php?src_id=8666 -O jinja.vim
-test -f j2.vim || ln -s jinja.vim j2.vim
-test -f htmljinja.vim || wget https://www.vim.org/scripts/download_script.php?src_id=6961 -O htmljinja.vim
+
+test -L jinja.vim || ln -s $REPO/third-party/vim/jinja.vim
+test -L j2.vim || ln -s jinja.vim j2.vim
+test -L htmljinja.vim || ln -s $REPO/third-party/vim/htmljinja.vim
+
 popd >/dev/null
 
 remove_and_link .tmux.conf ..
