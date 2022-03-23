@@ -8,6 +8,7 @@ choco upgrade -y neovim
 choco upgrade -y obs-studio
 choco upgrade -y python
 choco upgrade -y winrar
+choco upgrade -y make
 
 # VSCodium isn't usable, see:
 # https://github.com/VSCodium/vscodium/discussions/832#discussioncomment-2225387
