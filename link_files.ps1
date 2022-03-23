@@ -13,6 +13,10 @@ Link-Local ".vimrc"
 Link-Local "vim" $HOME\.vim $env:UserName
 Link-Local "init.vim" $HOME\AppData\Local\nvim
 
+Link-Local "third-party\vim\htmljinja.vim" $HOME\.vim\syntax "htmljinja.vim"
+Link-Local "third-party\vim\jinja.vim" $HOME\.vim\syntax "jinja.vim"
+Link-Local "third-party\vim\jinja.vim" $HOME\.vim\syntax "j2.vim"
+
 # link vscode settings
 $SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "vscode")
 $DstPaths = "Code", "Code - Insiders", "VSCodium"
