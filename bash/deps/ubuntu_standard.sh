@@ -87,10 +87,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_CONFIG_HOME=$HOME/.config
-
 DEFAULT_PYTHON=3.8
 
 # set some things if we're on a deprecated platform

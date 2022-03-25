@@ -52,6 +52,7 @@ remove_and_link_dir bin
 remove_and_link_dir .bash_includes
 
 link_dep ubuntu_standard.sh
+link_dep xdg.sh
 link_dep editor.sh
 link_dep paths.sh
 
