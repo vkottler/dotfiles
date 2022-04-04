@@ -69,3 +69,6 @@ source $HOME/.bashrc
 
 # ubuntu-specific operations
 source_if_ubuntu $LINK_DIR/link_ubuntu.sh $LINK_DIR/noop.sh
+
+# run certain setup scripts
+call_setup vim-plug
