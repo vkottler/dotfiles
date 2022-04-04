@@ -40,9 +40,9 @@ source_if_ubuntu() {
 
 # https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 get_latest_release() {
-  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+	curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+	grep '"tag_name":' |                                              # Get tag line
+	sed -E 's/.*"([^"]+)".*/\1/'                                      # Pluck JSON value
 }
 
 attempt_ping() {
@@ -64,12 +64,12 @@ add_file_to_remote() {
 
 THIRD_PARTY=$HOME/third-party
 
-clone_third_party_github() {
+clone_third_party_ssh() {
 	mkdir -p $THIRD_PARTY
 	pushd $THIRD_PARTY >/dev/null
 
 	if [ ! -d $2 ]; then
-		git clone git@github.com:$1/$2.git
+		git clone $3@$4:$1/$2.git
 		echo "Cloned '$1/$2'."
 	else
 		echo "Not cloning '$1/$2', already present."
@@ -78,18 +78,26 @@ clone_third_party_github() {
 	popd >/dev/null
 }
 
-clone_third_party_gnu() {
+clone_third_party_github() {
+	clone_third_party_ssh $1 $2 git github.com
+}
+
+clone_third_party_git() {
 	mkdir -p $THIRD_PARTY
 	pushd $THIRD_PARTY >/dev/null
 
-	if [ ! -d $1 ]; then
-		git clone git://git.savannah.gnu.org/$1.git
-		echo "Cloned '$1'."
+	if [ ! -d $2 ]; then
+		git clone git://$1/$2.git
+		echo "Cloned '$2'."
 	else
-		echo "Not cloning '$1', already present."
+		echo "Not cloning '$2', already present."
 	fi
 
 	popd >/dev/null
+}
+
+clone_third_party_gnu() {
+	clone_third_party_git git.savannah.gnu.org $1
 }
 
 ensure_home_venv() {

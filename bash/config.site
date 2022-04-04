@@ -2,13 +2,17 @@ LOCAL=$HOME/.local
 INCLUDE="$LOCAL/include"
 LIB="$LOCAL/lib"
 
-export CPATH="$INCLUDE:$CPATH"
-export C_INCLUDE_PATH="$INCLUDE:$C_INCLUDE_PATH"
-export CPLUS_INCLUDE_PATH="$INCLUDE:$CPLUS_INCLUDE_PATH"
-export LIBRARY_PATH="$LIB:$LIBRARY_PATH"
+strip_trailing_colon() {
+	echo "$1" | sed "s/:\([^:]*\)$/\1/"
+}
+
+export CPATH=$(strip_trailing_colon "$INCLUDE:$CPATH")
+export C_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$C_INCLUDE_PATH")
+export CPLUS_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$CPLUS_INCLUDE_PATH")
+export LIBRARY_PATH=$(strip_trailing_colon "$LIB:$LIBRARY_PATH")
 
 export CMAKE_INSTALL_PREFIX="$LOCAL"
 export CMAKE_MODULE_PATH="$CMAKE_MODULE_PATH"
 export CMAKE_PATH="$CMAKE_PATH"
-export CMAKE_INCLUDE_PATH="$INCLUDE:$CMAKE_INCLUDE_PATH"
-export CMAKE_LIBRARY_PATH="$LIB:$CMAKE_LIBRARY_PATH"
+export CMAKE_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$CMAKE_INCLUDE_PATH")
+export CMAKE_LIBRARY_PATH=$(strip_trailing_colon "$LIB:$CMAKE_LIBRARY_PATH")

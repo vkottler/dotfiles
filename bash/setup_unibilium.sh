@@ -9,6 +9,7 @@ clone_third_party_github mauke $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null
 
+make PREFIX="$CMAKE_INSTALL_PREFIX" all
 make PREFIX="$CMAKE_INSTALL_PREFIX" install
 
 popd >/dev/null
