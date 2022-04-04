@@ -11,8 +11,8 @@ clone_third_party_git gcc.gnu.org/git $PROJ
 
 # Checkout a release tag and download library dependencies.
 pushd $THIRD_PARTY/$PROJ >/dev/null
-# git checkout releases/gcc-$VERSION
-# ./contrib/download_prerequisites
+git checkout releases/gcc-$VERSION
+./contrib/download_prerequisites
 popd >/dev/null
 
 # See: https://gcc.gnu.org/install/configure.html
@@ -23,6 +23,7 @@ pushd $PROJ-objdir >/dev/null
 
 ./../$PROJ/configure $PREFIX_ARG
 make
+make install
 
 popd >/dev/null
 
