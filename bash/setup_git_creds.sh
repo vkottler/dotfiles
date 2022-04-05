@@ -9,3 +9,5 @@ else
 	git config --global user.email "vaughnkottler@gmail.com"
 	git config --global user.name "Vaughn Kottler"
 fi
+
+git config --global init.defaultBranch master
