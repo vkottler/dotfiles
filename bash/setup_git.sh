@@ -18,8 +18,13 @@ git checkout $VERSION
 
 make configure
 ./configure $PREFIX_ARG
-make profile
-make PROFILE=BUILD all doc info
-make PROFILE=BUILD install install-doc install-html install-info
+
+# Build and install git.
+make -j all
+make install
+
+# Try to build and install documentation.
+make -j doc info
+make install-doc install-html install-info
 
 popd >/dev/null

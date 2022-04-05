@@ -5,9 +5,10 @@ source $REPO/bash/common.sh
 
 PROJ=xmlto
 
+call_setup xmlto_sysdeps
+
 exit_if_command $PROJ
 
-call_setup xmlto_sysdeps
 clone_third_party_https pagure.io $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null
