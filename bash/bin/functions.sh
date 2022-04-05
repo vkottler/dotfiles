@@ -78,6 +78,20 @@ clone_third_party_ssh() {
 	popd >/dev/null
 }
 
+clone_third_party_https() {
+	mkdir -p $THIRD_PARTY
+	pushd $THIRD_PARTY >/dev/null
+
+	if [ ! -d $2 ]; then
+		git clone https://$1/$2.git
+		echo "Cloned '$2'."
+	else
+		echo "Not cloning '$2', already present."
+	fi
+
+	popd >/dev/null
+}
+
 clone_third_party_github() {
 	clone_third_party_ssh $1 $2 git github.com
 }
