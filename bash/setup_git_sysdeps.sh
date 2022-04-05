@@ -7,4 +7,4 @@ set -x
 
 exit_if_command docbook2x-texi
 
-sudo apt install -y docbook2x
+sudo apt install -y docbook2x libcurl4-openssh-dev
