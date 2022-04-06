@@ -11,6 +11,7 @@ clone_third_party_github sphinx-doc sphinx
 pushd $THIRD_PARTY/sphinx >/dev/null
 
 # Install editable in our home venv.
+set -x
 $HOME_PIP install -e .
 
 popd >/dev/null
