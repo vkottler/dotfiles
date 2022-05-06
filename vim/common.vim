@@ -9,12 +9,17 @@ set colorcolumn=80
 " load common binds
 call IncludeScript("simple_keybinds")
 
+" allow buffers to be hidden
+set hidden
+
 " visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>l :set list!<CR>
 
 " show trailing whitespace and spaces for tabs
 nnoremap <leader>L /\s\+$<CR>
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " navigating tabs
 nnoremap <leader>t :tab split +Explore<CR>
@@ -50,7 +55,7 @@ augroup indent_settings
     au!
     au BufNewFile,BufReadPost *.j2 set filetype=jinja foldmethod=indent
     au BufNewFile,BufReadPost *.html.j2 set filetype=htmljinja foldmethod=indent
-    au BufNewFile,BufReadPost *.eyaml set filetype=jinja foldmethod=indent
+    au BufNewFile,BufReadPost *.eyaml set filetype=yaml foldmethod=indent
     au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab foldmethod=indent
     au FileType html setlocal ts=2 sts=2 sw=2 expandtab
     au FileType css setlocal ts=2 sts=2 sw=2 expandtab

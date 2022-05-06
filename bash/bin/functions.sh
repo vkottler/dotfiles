@@ -114,6 +114,10 @@ clone_third_party_gnu() {
 	clone_third_party_git git.savannah.gnu.org $1
 }
 
+clone_kernel_repo() {
+	clone_third_party_git git.kernel.org/pub/scm/$1 $2
+}
+
 ensure_home_venv() {
 	if [ -z "$PYTHON_VERSION" ]; then
 		echo 'set $PYTHON_VERSION first'

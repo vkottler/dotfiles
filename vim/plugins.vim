@@ -1,30 +1,42 @@
 " declare plugins, install with :PlugInstall if necessary
 let g:plug_url_format = 'git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
-Plug 'rust-lang/rust.vim'
+
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-syntastic/syntastic'
+
+Plug 'dense-analysis/ale'
+
+" languages
+Plug 'rust-lang/rust.vim'
 Plug 'pprovost/vim-ps1'
-" not working right now
-" Plug 'tpope/vim-fugitive'
+
+" cosmetic
 Plug 'vim-airline/vim-airline'
-Plug 'psf/black', { 'branch': 'stable' }
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+
 call plug#end()
 
-" syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_yaml_checkers = ["yamllint"]
-let g:syntastic_python_checkers=["mypy", "pylint", "flake8"]
+" from vim-colorschemes
+colo atom
 
-" black settings
-let g:black_linelength = 79
-autocmd BufWritePre *.py execute ':Black'
+let g:airline#extensions#ale#enabled = 1
+
+" ale settings
+let g:ale_linters = {
+\   'cpp': ['clangd'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'cpp': ['clang-format'],
+\   'python': ['isort', 'black'],
+\}
+let line_length = '--line-length 79'
+let g:ale_python_black_options = line_length
+let g:ale_python_isort_options = line_length . ' --profile black --fss -m 3'
+let g:ale_fix_on_save = 1
 
 " We could format on save, but I find that it can hang when you save knowing
 " something is already wrong.
 let g:rustfmt_autosave = 0
 nnoremap <leader>rf :RustFmt<CR>
-
-" nmap <leader>g :TagbarToggle<CR>
