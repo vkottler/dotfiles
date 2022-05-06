@@ -25,6 +25,7 @@ let g:airline#extensions#ale#enabled = 1
 " ale settings
 let g:ale_linters = {
 \   'cpp': ['clangd'],
+\   'python': ['flake8', 'mypy', 'pylint', 'pylsp'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
