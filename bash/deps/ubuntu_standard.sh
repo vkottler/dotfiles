@@ -94,6 +94,9 @@ if [[ `uname -v` == *"Ubuntu"* ]]; then
 	if lsb_release -r | grep 16.04 >/dev/null 2>&1 ; then
 		export PYTHON_VERSION=3.7
 		alias python='python$PYTHON_VERSION'
+	elif lsb_release -r | grep 20.04 >/dev/null 2>&1 ; then
+		export PYTHON_VERSION=3.8
+		alias python='python$PYTHON_VERSION'
 	fi
 fi
 
