@@ -3,6 +3,8 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
+call_setup cmake
+
 PROJECT=alacritty
 clone_third_party_github $PROJECT $PROJECT
 
