@@ -1,0 +1,15 @@
+[cargo-new]
+vcs = "git"
+
+[net]
+git-fetch-with-cli = true
+
+[registry]
+default = "artifactory"
+
+[registries]
+artifactory = { index = "https://art.spacex.corp/artifactory/git/ex-crates-remote.git" }
+
+[source]
+artifactory = { registry = "https://art.spacex.corp/artifactory/git/ex-crates-remote.git" }
+crates-io = { replace-with = "artifactory" }

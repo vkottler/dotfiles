@@ -10,7 +10,7 @@ if [ ! -L $THIRD_PARTY_PREFIX/share/config.site ]; then
 	ln -s $SCRIPTS/config.site $THIRD_PARTY_PREFIX/share/config.site
 fi
 
-link_repo_rel_home_rel rust/config.toml .cargo/config.toml
+link_repo_rel_home_rel_check_work rust/config.toml .cargo/config.toml
 
 link_repo_rel_home_rel .vimrc .vimrc
 

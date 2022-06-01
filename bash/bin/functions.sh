@@ -31,6 +31,21 @@ source_if_ubuntu() {
 	fi
 }
 
+at_work() {
+	if [[ "`hostname -f`" == *"spacex.corp"* ]]; then
+		return 0
+	fi
+	return 1
+}
+
+link_repo_rel_home_rel_check_work() {
+if at_work; then
+	link_repo_rel_home_rel work/$1 $2
+else
+	link_repo_rel_home_rel $1 $2
+fi
+}
+
 # https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 get_latest_release() {
 	curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
