@@ -87,7 +87,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-DEFAULT_PYTHON=3.8
+DEFAULT_PYTHON=3.10
 
 # set some things if we're on a deprecated platform
 if [[ `uname -v` == *"Ubuntu"* ]]; then

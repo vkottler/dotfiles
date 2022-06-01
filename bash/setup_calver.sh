@@ -5,7 +5,8 @@ source $REPO/bash/common.sh
 
 PROJ=calver
 
-ensure_home_venv
+call_setup python
+
 clone_third_party_github di $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null

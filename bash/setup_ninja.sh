@@ -6,6 +6,7 @@ source $REPO/bash/common.sh
 PROJ=ninja
 
 exit_if_command $PROJ
+call_setup python
 
 clone_third_party_github ninja-build $PROJ
 
@@ -16,6 +17,7 @@ pushd $THIRD_PARTY/$PROJ >/dev/null
 
 # Link documentation to the expected location.
 if [ ! -L $THIRD_PARTY_PREFIX/doc/ninja ]; then
+	mkdir -p $THIRD_PARTY_PREFIX/doc
 	ln -s $THIRD_PARTY/ninja/doc $THIRD_PARTY_PREFIX/doc/ninja
 fi
 

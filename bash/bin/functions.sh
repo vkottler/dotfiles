@@ -136,12 +136,12 @@ ensure_home_venv() {
 	HOME_VENV=$HOME/venv$PYTHON_VERSION
 	if [ ! -d $HOME_VENV ]; then
 		python$PYTHON_VERSION -m venv $HOME_VENV
+		$HOME_VENV/bin/python -m pip install wheel
 	fi
 
 	# Create a symlink for convenience (i.e. adding to path).
-	if [ ! -L $HOME/venv ]; then
-		ln -s $HOME/venv$PYTHON_VERSION $HOME/venv
-	fi
+	rm -f $HOME/venv
+	ln -s $HOME/venv$PYTHON_VERSION $HOME/venv
 
 	# Set useful variables.
 	HOME_PYTHON="$HOME_VENV/bin/python"

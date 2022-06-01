@@ -5,7 +5,8 @@ source $REPO/bash/common.sh
 
 PROJ=pydeps
 
-ensure_home_venv
+call_setup python
+
 clone_third_party_github thebjorn $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null

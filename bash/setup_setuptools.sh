@@ -5,7 +5,8 @@ source $REPO/bash/common.sh
 
 PROJ=setuptools
 
-ensure_home_venv
+call_setup python
+
 clone_third_party_github pypa $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null
