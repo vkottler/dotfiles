@@ -2,24 +2,17 @@ set -e
 
 HOME_BIN=$HOME/bin
 
-remove_and_link() {
-	mkdir -p $HOME/`dirname $1`
-	rm -f $HOME/$1
-	ln -sf $(pwd)/$2/$1 $HOME/$1
-	echo "linking file '$(pwd)/$2/$1' to '$HOME/$1'"
-}
-
-remove_and_link_dir() {
-	mkdir -p $(pwd)/$1
-	rm -f $HOME/$1
-	ln -sf $(pwd)/$1 $HOME/$1
-	echo "linking directory '$(pwd)/$1' to '$HOME/$1'"
+link_repo_rel_home_rel() {
+	mkdir -p `dirname $HOME/$2`
+	rm -f $HOME/$2
+	ln -s $REPO/$1 $HOME/$2
+	echo "Linked repository '$1' to '~/$2'."
 }
 
 link_dep() {
 	rm -f $HOME/.bash_includes/$1
-	ln -sf $(pwd)/deps/$1 $HOME/.bash_includes/$1
-	echo "linking '$(pwd)/deps/$1' into .bash_includes"
+	ln -sf $REPO/bash/deps/$1 $HOME/.bash_includes/$1
+	echo "Linked 'bash/deps/$1' into .bash_includes."
 }
 
 source_if_wsl() {

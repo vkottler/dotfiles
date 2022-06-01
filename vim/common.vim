@@ -65,7 +65,6 @@ augroup indent_settings
     au FileType c setlocal ts=4 sts=4 sw=4 expandtab
     au FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
     au FileType json setlocal ts=4 sts=4 sw=4 expandtab foldmethod=indent
-    au FileType text setlocal paste
 augroup END
 
 " set variables to trigger other file-type settings

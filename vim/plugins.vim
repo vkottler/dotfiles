@@ -2,7 +2,9 @@
 let g:plug_url_format = 'git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
+" mechanical
 Plug 'jiangmiao/auto-pairs'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'dense-analysis/ale'
 
