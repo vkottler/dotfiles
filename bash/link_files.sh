@@ -12,6 +12,8 @@ fi
 
 link_repo_rel_home_rel_check_work rust/config.toml .cargo/config.toml
 
+link_repo_rel_home_rel alacritty.yml .config/alacritty/alacritty.yml
+
 link_repo_rel_home_rel .vimrc .vimrc
 
 mkdir -p $HOME/.vim
