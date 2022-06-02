@@ -15,4 +15,15 @@ cargo build --release
 
 popd >/dev/null
 
-ln -s $THIRD_PARTY/$PROJECT/target/release/alacritty $HOME/bin/alacritty
+if [ ! -L $HOME/bin/alacritty ]; then
+	ln -s \
+		$THIRD_PARTY/$PROJECT/target/release/alacritty \
+		$HOME/bin/alacritty
+
+	sudo update-alternatives --install \
+		/usr/bin/x-terminal-emulator \
+		x-terminal-emulator $HOME/bin/alacritty 1
+
+	# Choose whether or not to make alacritty the default.
+	sudo update-alternatives --config x-terminal-emulator
+fi
