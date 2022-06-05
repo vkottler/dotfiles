@@ -9,6 +9,9 @@ call_setup cmake
 PROJECT=alacritty
 clone_third_party_github $PROJECT $PROJECT
 
+sudo apt-get install pkg-config \
+	libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
+
 pushd $THIRD_PARTY/$PROJECT >/dev/null
 
 cargo build --release
