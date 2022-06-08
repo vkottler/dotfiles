@@ -34,6 +34,7 @@ let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'python': ['isort', 'black'],
 \}
+let g:ale_python_pylsp_config = {}
 let line_length = '--line-length 79'
 let g:ale_python_black_options = line_length
 let g:ale_python_isort_options = line_length . ' --profile black --fss -m 3'

@@ -16,6 +16,9 @@ link_repo_rel_home_rel alacritty.yml .config/alacritty/alacritty.yml
 
 link_repo_rel_home_rel .vimrc .vimrc
 
+link_repo_rel_home_rel python/flake8 .config/flake8
+link_repo_rel_home_rel python/pycodestyle .config/pycodestyle
+
 mkdir -p $HOME/.vim
 
 if [ ! -L $HOME/.vim/$USER ]; then
