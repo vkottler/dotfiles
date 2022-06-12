@@ -3,10 +3,11 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-exit_if_command alacritty
+PROJECT=alacritty
+
+exit_if_command $PROJECT
 call_setup cmake
 
-PROJECT=alacritty
 clone_third_party_github $PROJECT $PROJECT
 
 sudo apt-get install pkg-config \
@@ -18,15 +19,15 @@ cargo build --release
 
 popd >/dev/null
 
-if [ ! -L $HOME/bin/alacritty ]; then
+if [ ! -L $HOME/bin/$PROJECT ]; then
 	ln -s \
-		$THIRD_PARTY/$PROJECT/target/release/alacritty \
-		$HOME/bin/alacritty
+		$THIRD_PARTY/$PROJECT/target/release/$PROJECT \
+		$HOME/bin/$PROJECT
 
 	sudo update-alternatives --install \
 		/usr/bin/x-terminal-emulator \
-		x-terminal-emulator $HOME/bin/alacritty 1
+		x-terminal-emulator $HOME/bin/$PROJECT 1
 
-	# Choose whether or not to make alacritty the default.
+	# Choose whether or not to make '$PROJECT' the default.
 	sudo update-alternatives --config x-terminal-emulator
 fi
