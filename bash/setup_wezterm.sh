@@ -9,6 +9,12 @@ exit_if_command $PROJECT
 
 clone_third_party_github wez $PROJECT
 
+# System dependencies.
+sudo apt-get install \
+	libxcb-util-dev \
+	libxkbcommon-x11-dev \
+	libxcb-image0-dev
+
 pushd $THIRD_PARTY/$PROJECT >/dev/null
 
 cargo build --release

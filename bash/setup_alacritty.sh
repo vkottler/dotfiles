@@ -10,6 +10,7 @@ call_setup cmake
 
 clone_third_party_github $PROJECT $PROJECT
 
+# System dependencies.
 sudo apt-get install pkg-config \
 	libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
 
