@@ -8,9 +8,15 @@ git-fetch-with-cli = true
 default = "artifactory"
 
 [registries.artifactory]
+index = "https://art.spacex.corp/artifactory/git/ex-crates-remote.git"
+
+[registries.sx-crates-local]
 index = "https://art.spacex.corp/artifactory/git/sx-crates-local.git"
 
 [source.artifactory]
+registry = "https://art.spacex.corp/artifactory/git/ex-crates-remote.git"
+
+[source.sx-crates-local]
 registry = "https://art.spacex.corp/artifactory/git/sx-crates-local.git"
 
 [source.crates-io]
