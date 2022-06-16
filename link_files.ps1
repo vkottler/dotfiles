@@ -6,9 +6,6 @@ $ProfileDir = Split-Path $PROFILE
 $SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "ps1")
 Link-Local "profile.ps1" $ProfileDir $ProfileFilename -SrcRoot $SrcRoot
 
-# link ps1 functions so we can not worry where this is checked out
-Link-Local "functions.ps1" -SrcRoot $SrcRoot
-
 Link-Local ".vimrc"
 Link-Local "vim" $HOME\.vim $env:UserName
 Link-Local "init.vim" $HOME\AppData\Local\nvim
@@ -27,6 +24,7 @@ for ($i = 0; $i -lt $DstPaths.Length; $i++)
 }
 
 # windows terminal configuration
+New-Item -Type Directory -Path $HOME\AppData\Local\Packages -ErrorAction SilentlyContinue
 $WinTermLoc = ls $HOME\AppData\Local\Packages | Select-String WindowsTerminal
 if ( $WinTermLoc ) {
 	$WinTermLoc = [string]::Format("{0}\{1}", $WinTermLoc, "LocalState")

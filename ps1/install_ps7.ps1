@@ -7,7 +7,7 @@ if ( $PSVersionTable.PSVerion.Major -ge 7 ) {
 }
 
 # get url and paths set up
-$PSVersion = "7.1.0"
+$PSVersion = "7.2.4"
 $OutFile = [string]::Format("PowerShell-{0}-win-x64.msi", $PSVersion)
 $URL = [string]::Format("https://github.com/PowerShell/PowerShell/releases/download/v{0}/{1}", $PSVersion, $OutFile)
 $OutFilePath = [string]::Format("{0}\{1}", $pwd.Path, $OutFile)

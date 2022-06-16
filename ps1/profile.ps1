@@ -5,10 +5,16 @@ if ( -Not ( Test-Path $HOME\posh-git ) ) {
     git clone git@github.com:dahlbyk/posh-git.git $HOME\posh-git
 }
 
+# clone vim-plug if necessary
+if ( -Not ( Test-Path $HOME\vim-plug ) ) {
+    git clone git@github.com:junegunn/vim-plug.git $HOME\vim-plug
+}
+
 # install vim-plug if necessary
 if ( -Not ( Test-Path "$env:LOCALAPPDATA/nvim-data/site/autoload/plug.vim" ) ) {
-    iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-        ni "$env:LOCALAPPDATA/nvim-data/site/autoload/plug.vim" -Force
+    Link-Local $HOME\vim-plug\plug.vim "$env:LOCALAPPDATA/nvim-data/site/autoload/"
+    # iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    #     ni "$env:LOCALAPPDATA/nvim-data/site/autoload/plug.vim" -Force
 }
 
 # better prompt
