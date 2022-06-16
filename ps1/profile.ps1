@@ -11,10 +11,8 @@ if ( -Not ( Test-Path $HOME\vim-plug ) ) {
 }
 
 # install vim-plug if necessary
-if ( -Not ( Test-Path "$env:LOCALAPPDATA/nvim-data/site/autoload/plug.vim" ) ) {
-    Link-Local $HOME\vim-plug\plug.vim "$env:LOCALAPPDATA/nvim-data/site/autoload/"
-    # iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    #     ni "$env:LOCALAPPDATA/nvim-data/site/autoload/plug.vim" -Force
+if ( -Not ( Test-Path "$env:LOCALAPPDATA\nvim-data\site\autoload\plug.vim" ) ) {
+    Link-Local plug.vim "$env:LOCALAPPDATA\nvim-data\site\autoload" -SrcRoot $HOME\vim-plug
 }
 
 # better prompt

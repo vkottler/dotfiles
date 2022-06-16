@@ -18,5 +18,5 @@
     "remote.SSH.remotePlatform": {
         "vkottler-zbook": "linux"
     },
-    "window.zoomLevel": 2
+    "workbench.colorTheme": "Visual Studio Dark"
 }
