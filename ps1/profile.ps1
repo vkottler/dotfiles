@@ -1,22 +1,25 @@
 Import-Module $HOME\functions.ps1 -Force
 
+$third_party = "$HOME\third-party"
+New-Item -Type Directory -Path $third_party -ErrorAction SilentlyContinue
+
 # clone posh-git if necessary
-if ( -Not ( Test-Path $HOME\posh-git ) ) {
-    git clone git@github.com:dahlbyk/posh-git.git $HOME\posh-git
+if ( -Not ( Test-Path $third_party\posh-git ) ) {
+    git clone git@github.com:dahlbyk/posh-git.git $third_party\posh-git
 }
 
 # clone vim-plug if necessary
-if ( -Not ( Test-Path $HOME\vim-plug ) ) {
-    git clone git@github.com:junegunn/vim-plug.git $HOME\vim-plug
+if ( -Not ( Test-Path $third_party\vim-plug ) ) {
+    git clone git@github.com:junegunn/vim-plug.git $third_party\vim-plug
 }
 
 # install vim-plug if necessary
 if ( -Not ( Test-Path "$env:LOCALAPPDATA\nvim-data\site\autoload\plug.vim" ) ) {
-    Link-Local plug.vim "$env:LOCALAPPDATA\nvim-data\site\autoload" -SrcRoot $HOME\vim-plug
+    Link-Local plug.vim "$env:LOCALAPPDATA\nvim-data\site\autoload" -SrcRoot $third_party\vim-plug
 }
 
 # better prompt
-Import-Module $HOME\posh-git\src\posh-git.psd1
+Import-Module $third_party\posh-git\src\posh-git.psd1
 
 function Run-Administrator([string]$Command) {
     Run-SubShell $Command -AsAdmin $true -PrintCommand $true
