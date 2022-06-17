@@ -19,7 +19,9 @@ if ( -Not ( Test-Path "$env:LOCALAPPDATA\nvim-data\site\autoload\plug.vim" ) ) {
 }
 
 # better prompt
-Import-Module $third_party\posh-git\src\posh-git.psd1
+if (Test-Path $third_party\posh-git\src\posh-git.psd1) {
+    Import-Module $third_party\posh-git\src\posh-git.psd1
+}
 
 function Run-Administrator([string]$Command) {
     Run-SubShell $Command -AsAdmin $true -PrintCommand $true
