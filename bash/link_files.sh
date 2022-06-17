@@ -57,6 +57,8 @@ if [ ! -L $HOME/.ctags.d/dotfiles.ctags ]; then
 fi
 
 link_repo_rel_home_rel bash/bin bin
+
+mkdir -p $REPO/bash/.bash_includes
 link_repo_rel_home_rel bash/.bash_includes .bash_includes
 
 link_dep ubuntu_standard.sh

@@ -10,7 +10,7 @@ VIM_AUTOLOAD=$HOME/.vim/autoload
 mkdir -p $VIM_AUTOLOAD
 pushd $VIM_AUTOLOAD >/dev/null
 
-if ! [ -f plug.vim ]; then
+if ! [ -L plug.vim ]; then
 	ln -s $THIRD_PARTY/vim-plug/plug.vim
 fi
 
