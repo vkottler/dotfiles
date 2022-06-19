@@ -10,14 +10,9 @@ choco upgrade -y winrar
 # dog house
 #choco upgrade -y slack chromium
 
-# install neovim plugin manager
-$PlugDest = "$HOME\vimfiles\autoload\plug.vim"
-if ( -Not ( Test-Path $PlugDest ) ) {
-	iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | ni $PlugDest -Force
-}
-
 # set git identity
 git config --global user.email "vaughnkottler@gmail.com"
 git config --global user.name "Vaughn Kottler"
+git config --global core.editor nvim
 
 choco list -localonly
