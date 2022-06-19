@@ -11,8 +11,6 @@ choco upgrade -y winrar
 #choco upgrade -y slack chromium
 
 # set git identity
-git config --global user.email "vaughnkottler@gmail.com"
-git config --global user.name "Vaughn Kottler"
-git config --global core.editor nvim
+& .\setup_git.ps1
 
 choco list -localonly
