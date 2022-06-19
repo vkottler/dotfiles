@@ -4,8 +4,12 @@
     "actions":
     [
         {
-            "command": "paste",
-            "keys": "ctrl+v"
+            "command":
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
         },
         {
             "command":
@@ -15,24 +19,12 @@
             "keys": "alt+p"
         },
         {
-            "command":
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "find",
             "keys": "ctrl+shift+f"
-        },
-        {
-            "command":
-            {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "alt+shift+l"
         },
         {
             "command":
@@ -46,15 +38,23 @@
         {
             "command":
             {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
+        },
+        {
+            "command": "closeWindow",
+            "keys": "ctrl+w"
+        },
+        {
+            "command":
+            {
                 "action": "splitPane",
                 "split": "right",
                 "splitMode": "duplicate"
             },
             "keys": "ctrl+shift+v"
-        },
-        {
-            "command": "closeWindow",
-            "keys": "ctrl+w"
         },
         {
             "command":
@@ -71,6 +71,14 @@
                 "direction": "left"
             },
             "keys": "alt+shift+h"
+        },
+        {
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+h"
         },
         {
             "command":
@@ -95,14 +103,6 @@
                 "direction": "right"
             },
             "keys": "alt+l"
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "alt+h"
         },
         {
             "command":
