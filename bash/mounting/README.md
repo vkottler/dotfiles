@@ -6,6 +6,7 @@ Useful links:
 * Linux mounting - https://linoxide.com/howto-mount-smb-filesystem-using-etcfstab/
 * Using `smbclient` - https://www.linuxfordevices.com/tutorials/linux/linux-samba
 * Configuring drives for NAS - https://jensd.be/913/linux/build-configure-a-linux-based-nas
+* Enabling on Windows - https://docs.microsoft.com/en-US/troubleshoot/windows-server/networking/guest-access-in-smb2-is-disabled-by-default
 
 Some challenges:
 * Ensure that e.g. `nobody` is a user known to `smbd` via:
