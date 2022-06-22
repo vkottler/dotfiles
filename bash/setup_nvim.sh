@@ -11,20 +11,18 @@ if ! command -v nvim >/dev/null; then
 fi
 
 # link standard vimrc
-mkdir -p ~/.config/nvim
-ln -fs $(pwd)/../init.vim ~/.config/nvim/
+NVIM_CONFIG=$HOME/.config/nvim
+mkdir -p $NVIM_CONFIG
+pushd $NVIM_CONFIG >/dev/null
+
+if ! [ -L init.vim ]; then
+    ln -s $REPO/init.vim
+fi
+
+popd >/dev/null
 
 # make it the default
 $(pwd)/update_alternatives.sh
-
-# install plugin manager
-PLUG_FILE=${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim
-rm -rf $PLUG_FILE
-curl --create-dirs -fLo $PLUG_FILE https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# vim backwards compatability
-mkdir -p $HOME/.vim/autoload
-ln -fs $PLUG_FILE $HOME/.vim/autoload/plug.vim
 
 # load the updates
 source ~/.bashrc

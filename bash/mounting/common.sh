@@ -1,0 +1,3 @@
+NAS_HOST=$USER-nas
+NAS_DEST=$HOME/mnt
+SHARES=data
