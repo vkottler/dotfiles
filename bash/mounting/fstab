@@ -1,1 +1,2 @@
-/dev/md0 /mnt/nas1 ext4 defaults 0 2
+/dev/md0 /mnt/nas0 ext4 defaults 0 2
+/dev/md1 /mnt/nas1 ext4 defaults 0 2
