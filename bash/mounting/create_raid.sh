@@ -5,14 +5,11 @@ source $REPO/bash/common.sh
 CWD=$REPO/bash/mounting
 source $CWD/common.sh
 
-INST=1
 LEVEL=mirror
 FS=ext4
 
 DRIVE_1=sdd
 DRIVE_2=sde
-
-DEST=/dev/md$INST
 
 sudo mdadm \
 	--create $DEST \
@@ -28,6 +25,6 @@ sudo mkfs.$FS $DEST
 echo "Applied '$FS' file-system."
 
 NAS=/mnt/nas$INST
-sudo mkdir $NAS
+sudo mkdir -p $NAS
 echo "$DEST $NAS $FS defaults 0 2" > $CWD/fstab
 echo "Updated '$CWD/fstab'."
