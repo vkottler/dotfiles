@@ -33,3 +33,5 @@ echo "Updated '$CWD/fstab'."
 sudo mount $DEST $NAS
 sudo mkdir $NAS/share
 sudo chown nobody.nogroup $NAS/share
+
+echo "Run 'sudo update-initramfs -u' after updating configuration files."
