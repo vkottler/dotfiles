@@ -1,6 +1,5 @@
 Import-Module $HOME\functions.ps1 -Force
 
-$third_party = "$HOME\third-party"
 New-Item -Type Directory -Path $third_party -ErrorAction SilentlyContinue
 
 # clone posh-git if necessary
@@ -61,6 +60,7 @@ Set-Alias -Name vscode -Value code-insiders.cmd
 
 # add things to path
 Add-Path $HOME\venv\Scripts
+Add-Path "C:\Program Files\CMake\bin"
 
 # get Python version
 function Set-Python-Version {

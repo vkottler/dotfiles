@@ -1,18 +1,34 @@
 # dotfiles
 
 On Linux I mostly use [GNU Bash](https://www.gnu.org/software/bash/) and edit in
-[neovim](https://neovim.io/). I prefer [GNOME](https://www.gnome.org/) as far
-as graphical environments go. Recently I've been trying to
-stand up a productive, Windows environment as well. On Windows I'm trying
-[Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/) and
+[neovim](https://neovim.io/). I prefer [GNOME](https://www.gnome.org/) or
+[Pop!\_OS](https://pop.system76.com/) for a graphical environment because those
+are the only two I've used that I know how to configure basic keybinds for.
+
+I either use the
+[`gnome-terminal`](https://help.gnome.org/users/gnome-terminal/stable/) default
+or [`alacritty`](https://github.com/alacritty/alacritty) for a terminal
+emulator. [`wezterm`](https://wezfurlong.org/wezterm/) is another good option
+that I haven't tried yet.
+
+Recently I've been trying to stand up a usable Windows environment. On Windows
+I use [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/)
+for an emulator and default it to
 [PowerShell](https://docs.microsoft.com/en-us/powershell/).
 
-Trying to make most of the basic, initial environment setup contain as little
-jank as possible.
+Below are some notes on setup scripts and configuration files contained in
+the repository.
 
 ## Usage
 
-Run commands from the `bash` directory of your checkout.
+Bash scripts can be found in the [`bash`](bash) directory and PowerShell
+scripts can be found in the [`ps1`](ps1) directory.
+
+Sripts generally have the form `*_(setup|install).(sh|ps1)` and the script
+contents leverage some common shell functions in most cases so they're
+easier to read and understand.
+
+**Below are some older notes that I'm keeping in for now.**
 
 ### Ubuntu (or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
 
@@ -56,3 +72,7 @@ relevant setup script is executed and the setup scripts opts to link a file.
 
 Overall, this makes it easier to manage the N+1 case of further automating
 something like an initial workstation setup.
+
+## Other Documentation
+
+* [Building OBS Studio in Windows](ps1/setup_obs.md)

@@ -18,5 +18,6 @@
     "remote.SSH.remotePlatform": {
         "vkottler-zbook": "linux"
     },
-    "workbench.colorTheme": "Visual Studio Dark"
+    "workbench.colorTheme": "Visual Studio Dark",
+    "security.workspace.trust.untrustedFiles": "open"
 }

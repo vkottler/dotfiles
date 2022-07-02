@@ -113,3 +113,21 @@ function Add-Path {
     $env:PATH = [String]::Join(';', $Path)
   }
 }
+
+$third_party = "$HOME\third-party"
+
+function Clone-Repository {
+    Param (
+        [Parameter(Mandatory=$true)] [string]$organization,
+        [Parameter(Mandatory=$true)] [string]$repo
+    )
+
+    if ( -Not ( Test-Path $third_party\$repo ) ) {
+        git clone git@github.com:$organization/$repo $third_party\$repo
+        pushd $third_party\$repo
+        git submodule update --init --recursive
+        popd
+    }
+
+    pushd $third_party\$repo
+}
