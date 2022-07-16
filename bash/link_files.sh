@@ -64,6 +64,11 @@ link_repo_rel_home_rel bash/.bash_includes .bash_includes
 link_dep ubuntu_standard.sh
 link_dep xdg.sh
 link_dep editor.sh
+
+if [[ `uname -v` == *"Darwin"* ]]; then
+    link_dep homebrew.sh
+fi
+
 link_dep paths.sh
 
 # load new configurations
