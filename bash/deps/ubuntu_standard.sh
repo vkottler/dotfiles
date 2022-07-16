@@ -91,9 +91,12 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-DEFAULT_PYTHON=3.10
+# Set a sane default for Python.
+if [ -z "$DEFAULT_PYTHON" ]; then
+    DEFAULT_PYTHON=3.10
+fi
 
-# set some things if we're on a deprecated platform
+# Set some things if we're on a deprecated platform.
 if [[ `uname -v` == *"Ubuntu"* ]]; then
 	if lsb_release -r | grep 16.04 >/dev/null 2>&1 ; then
 		export PYTHON_VERSION=3.7
