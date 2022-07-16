@@ -11,8 +11,13 @@ call_setup cmake
 clone_third_party_github $PROJECT $PROJECT
 
 # System dependencies.
-sudo apt-get install pkg-config \
-	libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev
+if ! is_macos; then
+    sudo apt-get install pkg-config \
+        libfreetype6-dev \
+        libfontconfig1-dev \
+        libxcb-xfixes0-dev \
+        libxkbcommon-dev
+fi
 
 pushd $THIRD_PARTY/$PROJECT >/dev/null
 
@@ -25,10 +30,12 @@ if [ ! -L $HOME/bin/$PROJECT ]; then
 		$THIRD_PARTY/$PROJECT/target/release/$PROJECT \
 		$HOME/bin/$PROJECT
 
-	sudo update-alternatives --install \
-		/usr/bin/x-terminal-emulator \
-		x-terminal-emulator $HOME/bin/$PROJECT 1
+    if command -v update-alternatives >/dev/null; then
+        sudo update-alternatives --install \
+            /usr/bin/x-terminal-emulator \
+            x-terminal-emulator $HOME/bin/$PROJECT 1
 
-	# Choose whether or not to make '$PROJECT' the default.
-	sudo update-alternatives --config x-terminal-emulator
+        # Choose whether or not to make '$PROJECT' the default.
+        sudo update-alternatives --config x-terminal-emulator
+    fi
 fi

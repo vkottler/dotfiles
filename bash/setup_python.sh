@@ -10,19 +10,21 @@ if [ -d $HOME/venv$PYTHON_VERSION ]; then
 	exit 0
 fi
 
-sudo apt-get install -y python3 \
-	python-is-python3 \
-	python3-pip \
-	python3-venv \
-	python-dev-is-python3
+if ! is_macos; then
+    sudo apt-get install -y python3 \
+        python-is-python3 \
+        python3-pip \
+        python3-venv \
+        python-dev-is-python3
+fi
 
 python -m pip install wheel
-python -m pip install --upgrade vmklib 'python-language-server[all]'
+python -m pip install --upgrade 'python-language-server[all]'
 
 ensure_home_venv
 
 # install useful packages
-$HOME_VENV/bin/pip install --upgrade grip
+$HOME_VENV/bin/pip install --upgrade grip vmklib
 link_dep grip.sh
 
 # load the updates

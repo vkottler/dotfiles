@@ -38,6 +38,13 @@ at_work() {
 	return 1
 }
 
+is_macos() {
+    if [[ `uname -v` == *"Darwin"* ]]; then
+        return 0
+    fi
+    return 1
+}
+
 link_repo_rel_home_rel_check_work() {
 if at_work; then
 	link_repo_rel_home_rel work/$1 $2
