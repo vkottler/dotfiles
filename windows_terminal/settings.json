@@ -133,9 +133,11 @@
             "keys": "alt+n"
         }
     ],
+    "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": true,
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "defaultProfile": "{28d9ebec-3595-4524-a706-8f7bb608493d}",
+    "disableAnimations": true,
     "profiles":
     {
         "defaults":
@@ -143,9 +145,11 @@
             "bellStyle": "none",
             "closeOnExit": "always",
             "colorScheme": "Tango Dark",
+            "experimental.retroTerminalEffect": false,
             "font":
             {
-                "size": 14
+                "face": "Cascadia Code",
+                "size": 9
             },
             "opacity": 70,
             "useAcrylic": true
@@ -386,5 +390,6 @@
             "yellow": "#808000"
         }
     ],
-    "theme": "dark"
+    "theme": "system",
+    "useAcrylicInTabRow": true
 }
