@@ -3,11 +3,9 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-set -x
-
 # install neovim if necessary
 if ! command -v nvim >/dev/null; then
-	source update_nvim.sh
+	source $REPO/bash/update_nvim.sh
 fi
 
 # link standard vimrc
@@ -22,7 +20,7 @@ fi
 popd >/dev/null
 
 # make it the default
-$(pwd)/update_alternatives.sh
+$REPO/bash/update_alternatives.sh
 
 # load the updates
 source ~/.bashrc
