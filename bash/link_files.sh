@@ -65,7 +65,7 @@ link_dep ubuntu_standard.sh
 link_dep xdg.sh
 link_dep editor.sh
 
-if [[ `uname -v` == *"Darwin"* ]]; then
+if is_macos; then
     link_dep homebrew.sh
 fi
 
