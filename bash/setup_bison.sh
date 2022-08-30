@@ -12,6 +12,8 @@ clone_third_party_gnu $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null
 
+git submodule update --init --recursive
+
 # This is just another garbage GNU project that can't build anymore.
 # https://github.com/akimd/bison/issues/65
 

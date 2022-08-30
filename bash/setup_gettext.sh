@@ -20,7 +20,7 @@ if [ -d gnulib ] && [ ! -L gnulib ]; then
 fi
 
 ./autogen.sh
-./configure $PREFIX_ARG --disable-curses
+./configure $PREFIX_ARG
 make && make install
 
 popd >/dev/null
