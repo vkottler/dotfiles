@@ -7,6 +7,7 @@ Useful links:
 * Using `smbclient` - https://www.linuxfordevices.com/tutorials/linux/linux-samba
 * Configuring drives for NAS - https://jensd.be/913/linux/build-configure-a-linux-based-nas
 * Enabling on Windows - https://docs.microsoft.com/en-US/troubleshoot/windows-server/networking/guest-access-in-smb2-is-disabled-by-default
+* `smartctl` drive health - https://www.addictivetips.com/ubuntu-linux-tips/check-hard-drive-health-on-linux/
 
 Some challenges:
 * Ensure that e.g. `nobody` is a user known to `smbd` via:
