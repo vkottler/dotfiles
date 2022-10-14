@@ -1,6 +1,9 @@
-NAS_HOST=$USER-nas
+NAS_HOST=kottler-nas
 NAS_DEST=$HOME/mnt
-SHARES="240GB_mirrored_ssd 500GB_mirrored_mechanical"
+
+SHARES="8TB_striped_mechanical_0"
+SHARES+=" 6TB_single_mechanical_0"
+SHARES+=" 6TB_single_mechanical_1"
 
 INST=1
 DEST=/dev/md$INST
