@@ -64,9 +64,11 @@ Add-Path "C:\Program Files\CMake\bin"
 
 # get Python version
 function Set-Python-Version {
-	$output = & python --version
-	$semver = $output.split(" ")[1].split(".")
-	$env:PYTHON_VERSION = [string]::Format("{0}.{1}", $semver[0], $semver[1])
+    $output = & python --version
+    if ( $output ) {
+        $semver = $output.split(" ")[1].split(".")
+        $env:PYTHON_VERSION = [string]::Format("{0}.{1}", $semver[0], $semver[1])
+    }
 }
 Set-Python-Version
 $PYTHON_VERSION = $env:PYTHON_VERSION

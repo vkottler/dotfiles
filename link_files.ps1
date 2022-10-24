@@ -22,15 +22,16 @@ $SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "vscode")
 $DstPaths = "Code", "Code - Insiders", "VSCodium"
 for ($i = 0; $i -lt $DstPaths.Length; $i++)
 {
-	$DstPath = [string]::Format("{0}\{1}\User", $env:AppData, $DstPaths[$i])
-	Link-Local "settings.json" $DstPath -SrcRoot $SrcRoot
+    $DstPath = [string]::Format("{0}\{1}\User", $env:AppData, $DstPaths[$i])
+    Link-Local "settings.json" $DstPath -SrcRoot $SrcRoot
 }
 
 # windows terminal configuration
 New-Item -Type Directory -Path $HOME\AppData\Local\Packages -ErrorAction SilentlyContinue
-$WinTermLoc = ls $HOME\AppData\Local\Packages | Select-String WindowsTerminal
+$WinTermRoot = [string]::Format("{0}\AppData\Local\Packages", $HOME)
+$WinTermLoc = ls $WinTermRoot | Select-String WindowsTerminal
 if ( $WinTermLoc ) {
-	$WinTermLoc = [string]::Format("{0}\{1}", $WinTermLoc, "LocalState")
-	$SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "windows_terminal")
-	Link-Local "settings.json" $WinTermLoc -SrcRoot $SrcRoot
+    $WinTermLoc = [string]::Format("{0}\{1}\{2}", $WinTermRoot, $WinTermLoc, "LocalState")
+    $SrcRoot = [string]::Format("{0}\{1}", $pwd.path, "windows_terminal")
+    Link-Local "settings.json" $WinTermLoc -SrcRoot $SrcRoot
 }
