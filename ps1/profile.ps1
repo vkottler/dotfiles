@@ -61,6 +61,7 @@ Set-Alias -Name vscode -Value code-insiders.cmd
 # add things to path
 Add-Path $HOME\venv\Scripts
 Add-Path "C:\Program Files\CMake\bin"
+Add-Path $HOME\.cargo\bin
 
 # get Python version
 function Set-Python-Version {
