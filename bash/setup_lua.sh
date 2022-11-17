@@ -12,7 +12,7 @@ VERSION=5.4.4
 
 pushd $THIRD_PARTY >/dev/null
 
-if ! [ -d $PROJ ]; then
+if ! [ -L $PROJ ]; then
 	# See: https://www.lua.org/download.html.
 	curl -R -O http://www.lua.org/ftp/$PROJ-$VERSION.tar.gz
 	tar zxf $PROJ-$VERSION.tar.gz

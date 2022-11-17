@@ -19,4 +19,4 @@ done
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # add local libraries
-export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$HOME/.local/lib:$HOME/.local/lib64:$LD_LIBRARY_PATH"

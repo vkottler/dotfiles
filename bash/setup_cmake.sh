@@ -5,6 +5,7 @@ source $REPO/bash/common.sh
 
 call_setup ninja
 call_setup sphinx
+call_setup openssl
 
 exit_if_command cmake
 

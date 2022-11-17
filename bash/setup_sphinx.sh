@@ -13,6 +13,6 @@ pushd $THIRD_PARTY/sphinx >/dev/null
 # Install editable in our home venv.
 ensure_home_venv
 set -x
-$HOME_PIP install -e .
+$HOME_PIP install .
 
 popd >/dev/null

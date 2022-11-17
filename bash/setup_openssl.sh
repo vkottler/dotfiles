@@ -5,6 +5,8 @@ source $REPO/bash/common.sh
 
 PROJ=openssl
 
+exit_if_command $PROJ
+
 clone_third_party_github $PROJ $PROJ
 
 pushd $THIRD_PARTY/$PROJ >/dev/null

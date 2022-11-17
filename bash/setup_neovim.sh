@@ -4,6 +4,7 @@ REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
 call_setup cmake
+call_setup luarocks
 
 PROJ=neovim
 
