@@ -9,7 +9,7 @@ PATH_ENTRIES+=" /usr/local/toolchains/rust/cargo/bin"
 PATH_ENTRIES+=" $HOME/.npm-packages/bin"
 
 # toolchains
-PATH_ENTRIES+=" $HOME/gcc-arm-none-eabi"
+PATH_ENTRIES+=" $HOME/gcc-arm-none-eabi/bin"
 
 # add entries to path and export
 for ENTRY in $PATH_ENTRIES

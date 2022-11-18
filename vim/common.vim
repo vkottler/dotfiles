@@ -12,6 +12,9 @@ call IncludeScript("simple_keybinds")
 " allow buffers to be hidden
 set hidden
 
+" fix newlines by default
+set fixeol
+
 " visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>l :set list!<CR>
@@ -65,10 +68,12 @@ augroup indent_settings
     au FileType c setlocal ts=4 sts=4 sw=4 expandtab
     au FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
     au FileType json setlocal ts=4 sts=4 sw=4 expandtab foldmethod=indent
+    au FileType xml setlocal foldmethod=syntax
 augroup END
 
 " set variables to trigger other file-type settings
 let ft_bzl_fold=1
+let g:xml_syntax_folding=1
 let python_recommended_style=1
 
 " enable folding, set binds
