@@ -3,20 +3,27 @@
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
-HOME_BIN=$HOME/bin
 REL_URI=https://github.com/neovim/neovim/releases/download/nightly
 
 if ! is_macos; then
     APP_IMAGE=nvim.appimage
 
-    # always start fresh
-    rm -rf $HOME_BIN/_nvim $HOME_BIN/nvim $HOME_BIN/neovim
+    # Download the app image if it's not already present.
+    if ! [ -f $THIRD_PARTY/$APP_IMAGE ]; then
+        echo "App image not found, downloading."
+        wget $REL_URI/$APP_IMAGE -O $THIRD_PARTY/$APP_IMAGE
+    else
+        echo "App image already found at '$THIRD_PARTY/$APP_IMAGE'."
+    fi
 
-    # download the app image
-    wget $REL_URI/$APP_IMAGE -O $HOME_BIN/$APP_IMAGE
+    rm -f $HOME_BIN/$APP_IMAGE
+    cp $THIRD_PARTY/$APP_IMAGE $HOME_BIN/$APP_IMAGE
     chmod u+x $HOME_BIN/$APP_IMAGE
 
-    # extract and symbolic links
+    # Remove any prior assets.
+    rm -rf $HOME_BIN/_nvim $HOME_BIN/nvim $HOME_BIN/neovim
+
+    # Extract and create symbolic links.
     $HOME_BIN/$APP_IMAGE --appimage-extract
     mv -f $(pwd)/squashfs-root $HOME_BIN/_nvim
 
@@ -41,3 +48,5 @@ else
         ln -s $THIRD_PARTY/$ARTIFACT/bin/nvim $HOME_BIN/$ALIAS
     done
 fi
+
+echo "Updating neovim complete."
