@@ -1,2 +1,2 @@
-alacritty
-vi*
+*
+!*.sh

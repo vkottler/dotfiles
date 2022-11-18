@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 REPO=`git rev-parse --show-toplevel`
 source $REPO/bash/common.sh
 
@@ -18,14 +16,8 @@ if ! is_macos; then
         python-dev-is-python3
 fi
 
-python -m pip install wheel
-python -m pip install --upgrade 'python-language-server[all]'
-
-ensure_home_venv
-
-# install useful packages
-$HOME_VENV/bin/pip install --upgrade grip vmklib
-link_dep grip.sh
+call_setup home_venv
 
 # load the updates
+link_dep grip.sh
 source ~/.bashrc
