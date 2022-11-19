@@ -16,7 +16,9 @@ for ENTRY in $PATH_ENTRIES
 do
 	PATH+=":$ENTRY"
 done
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+LOCAL=$HOME/.local
+export PATH="$HOME/bin:$LOCAL/bin:$PATH"
 
 # add local libraries
-export LD_LIBRARY_PATH="$HOME/.local/lib:$HOME/.local/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$LOCAL/lib:$LOCAL/lib64:$LD_LIBRARY_PATH"

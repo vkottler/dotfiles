@@ -1,6 +1,6 @@
 LOCAL=$HOME/.local
 INCLUDE="$LOCAL/include"
-LIB="$LOCAL/lib"
+LIB="$LOCAL/lib:$LOCAL/lib64"
 
 strip_trailing_colon() {
 	echo "$1" | sed "s/:\([^:]*\)$/\1/"
@@ -16,6 +16,3 @@ export CMAKE_MODULE_PATH="$CMAKE_MODULE_PATH"
 export CMAKE_PATH="$CMAKE_PATH"
 export CMAKE_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$CMAKE_INCLUDE_PATH")
 export CMAKE_LIBRARY_PATH=$(strip_trailing_colon "$LIB:$CMAKE_LIBRARY_PATH")
-
-# Strip trailing colon on library path.
-export LD_LIBRARY_PATH=$(strip_trailing_colon "$LD_LIBRARY_PATH")
