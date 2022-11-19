@@ -19,7 +19,7 @@ pushd $THIRD_PARTY/$PROJ >/dev/null
 git checkout $VERSION
 
 make configure
-./configure $PREFIX_ARG OPENSSLDIR=$LOCAL
+./configure $PREFIX_ARG OPENSSLDIR=$LOCAL --with-expat
 
 # Build and install git.
 make -j all
