@@ -29,7 +29,7 @@ fi
 
 pushd $PROJ >/dev/null
 
-./configure $PREFIX_ARG
+./configure $PREFIX_ARG --lua-version=$LUA_VERSION
 make && make install
 
 popd >/dev/null

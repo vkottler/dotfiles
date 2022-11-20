@@ -2,6 +2,10 @@ SCRIPTS=$REPO/bash
 
 source $SCRIPTS/bin/functions.sh
 
+# Change this if necessary.
+# Latest: 5.4.
+LUA_VERSION=5.1
+
 source $SCRIPTS/config.site
 
 # Prefer installing under our home tree, rather than e.g. '/usr/local'.

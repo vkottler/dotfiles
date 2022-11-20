@@ -8,7 +8,9 @@ PROJ=lua
 exit_if_command $PROJ
 exit_if_command luac
 
-VERSION=5.4.4
+# Latest: 5.4.4.
+SUB_VERSION=5
+VERSION=$LUA_VERSION.$SUB_VERSION
 
 pushd $THIRD_PARTY >/dev/null
 
@@ -23,6 +25,7 @@ fi
 
 pushd $PROJ >/dev/null
 
+make linux
 make all test
 make install INSTALL_TOP=$LOCAL
 

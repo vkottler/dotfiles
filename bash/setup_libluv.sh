@@ -15,14 +15,14 @@ make CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX" \
 make CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX" install
 
 # Link the library to the correct location.
-pushd $LIB >/dev/null
+pushd $LOCAL/lib >/dev/null
 if [ ! -L luv.so ]; then
-	ln -s $LIB/lua/5.1/luv.so
+	ln -s $LOCAL/lib/lua/5.1/luv.so
 fi
 popd >/dev/null
 
 # Link the header to the correct location(s).
-pushd $INCLUDE >/dev/null
+pushd $LOCAL/include >/dev/null
 mkdir -p luv
 if [ ! -L luv/luv.h ]; then
 	ln -s $THIRD_PARTY/luv/src/luv.h luv/luv.h

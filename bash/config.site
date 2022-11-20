@@ -16,3 +16,6 @@ export CMAKE_MODULE_PATH="$CMAKE_MODULE_PATH"
 export CMAKE_PATH="$CMAKE_PATH"
 export CMAKE_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$CMAKE_INCLUDE_PATH")
 export CMAKE_LIBRARY_PATH=$(strip_trailing_colon "$LIB:$CMAKE_LIBRARY_PATH")
+
+# Ensure that the lua interpreter can find modules.
+export LUA_CPATH=";;$LOCAL/lib/lua/$LUA_VERSION/?.so"

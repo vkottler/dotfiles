@@ -13,8 +13,8 @@ pushd $THIRD_PARTY/$PROJ >/dev/null
 
 # Tell this thing to use ncurses.
 cmake \
-	-DCURSES_LIBRARY="$LIB/libncursesw.so" \
-	-DCURSES_INCLUDE_PATH="$INCLUDE/ncursesw" \
+	-DCURSES_LIBRARY="$LOCAL/lib/libncursesw.so" \
+	-DCURSES_INCLUDE_PATH="$LOCAL/include/ncursesw" \
 	$CMAKE_ARGS
 ninja && ninja install
 
