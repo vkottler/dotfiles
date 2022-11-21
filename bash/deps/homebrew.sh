@@ -10,6 +10,12 @@ if [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
     . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
+# Load bash-completions for git.
+THIRD_PARTY=$HOME/third-party
+if [ -r "$THIRD_PARTY/git/contrib/completion/git-completion.bash" ]; then
+	. "$THIRD_PARTY/git/contrib/completion/git-completion.bash"
+fi
+
 DEFAULT_PYTHON=3.9
 export PYTHON_VERSION=$DEFAULT_PYTHON
 

@@ -1,6 +1,7 @@
 set -e
 
 HOME_BIN=$HOME/bin
+THIRD_PARTY=$HOME/third-party
 
 link_repo_rel_home_rel() {
 	mkdir -p `dirname $HOME/$2`
