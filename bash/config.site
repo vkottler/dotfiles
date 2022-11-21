@@ -10,6 +10,7 @@ export CPATH=$(strip_trailing_colon "$INCLUDE:$CPATH")
 export C_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$C_INCLUDE_PATH")
 export CPLUS_INCLUDE_PATH=$(strip_trailing_colon "$INCLUDE:$CPLUS_INCLUDE_PATH")
 export LIBRARY_PATH=$(strip_trailing_colon "$LIB:$LIBRARY_PATH")
+export LD_LIBRARY_PATH=$(strip_trailing_colon "$LIB:$LD_LIBRARY_PATH")
 
 export CMAKE_INSTALL_PREFIX="$LOCAL"
 export CMAKE_MODULE_PATH="$CMAKE_MODULE_PATH"
