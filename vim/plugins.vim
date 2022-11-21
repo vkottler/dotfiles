@@ -11,6 +11,7 @@ Plug 'dense-analysis/ale'
 " languages
 Plug 'rust-lang/rust.vim'
 Plug 'pprovost/vim-ps1'
+Plug 'leafgarland/typescript-vim'
 
 " cosmetic
 Plug 'vim-airline/vim-airline'
@@ -28,11 +29,14 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
 \   'cpp': ['clangd'],
 \   'python': ['flake8', 'mypy', 'pylint', 'pylsp'],
+\   'typescript': ['tsserver', 'eslint'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format'],
 \   'python': ['isort', 'black'],
+\   'typescript': ['prettier', 'eslint'],
+\   'html': ['prettier'],
 \}
 let g:ale_python_pylsp_config = {}
 let line_length = '--line-length 79'
