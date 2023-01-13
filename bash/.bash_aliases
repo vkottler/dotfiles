@@ -28,7 +28,7 @@ alias tat='tmux attach -d -t'
 alias vdu='better_du.sh'
 alias gcau='git commit --amend --author="Vaughn Kottler <vaughnkottler@gmail.com>"'
 
-if [[ `uname -v` == *"Darwin"* ]]; then
+if [[ $(uname -v) == *"Darwin"* ]]; then
     alias fls='open . &'
 else
     alias fls='nautilus --new-window --browser ./ >/dev/null 2>/dev/null &'

@@ -3,14 +3,15 @@ export BROWSER="$HOME/bin/wsl_browser.sh"
 
 if command -v rustup >/dev/null; then
     # https://github.com/rust-lang/rustup/issues/2206
-    export RDOC_LOC=`rustup doc --path`
+    RDOC_LOC=$(rustup doc --path)
+    export RDOC_LOC
     alias rdocs='"$BROWSER" `wslpath -w $RDOC_LOC`'
 fi
 
 # make it so we always start in our home directory
 if [ ! -n "$WSL_FIRST_LOAD" ]; then
 	export WSL_FIRST_LOAD=no
-	cd $HOME
+	cd "$HOME"
 
 	# things to do if we're not an ssh session
 	if [ ! -n "$SSH_CLIENT" ] && [ ! -n "$SSH_TTY" ]; then

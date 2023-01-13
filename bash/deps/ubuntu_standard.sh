@@ -47,13 +47,13 @@ fi
 
 # adding git branch to prompt
 _parse_git_branch() {
-	`which git` branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+	$(which git) branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 parse_git_branch() {
 	OUTPUT=$(_parse_git_branch)
 	LENGTH=${#OUTPUT}
-	if [ $LENGTH -ne 0 ]; then
-		printf " %s " $OUTPUT
+	if [ "$LENGTH" -ne 0 ]; then
+		printf " %s " "$OUTPUT"
 	fi
 }
 

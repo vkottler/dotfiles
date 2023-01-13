@@ -6,7 +6,7 @@ export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
 
 # Load bash completions.
-if [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
     . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
