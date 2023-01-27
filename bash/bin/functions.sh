@@ -1,46 +1,50 @@
+#!/bin/bash
+#
 set -e
 
-HOME_BIN=$HOME/bin
+HOME_BIN="$HOME/bin"
+test "$HOME_BIN"
+
 THIRD_PARTY=$HOME/third-party
 
 link_repo_rel_home_rel() {
-	mkdir -p `dirname $HOME/$2`
-	rm -f $HOME/$2
-	ln -s $REPO/$1 $HOME/$2
+	mkdir -p "$(dirname "$HOME/$2")"
+	rm -f "$HOME/$2"
+	ln -s "$REPO/$1" "$HOME/$2"
 	echo "Linked repository '$1' to '~/$2'."
 }
 
 link_dep() {
-	rm -f $HOME/.bash_includes/$1
-	ln -sf $REPO/bash/deps/$1 $HOME/.bash_includes/$1
+	rm -f "$HOME/.bash_includes/$1"
+	ln -sf "$REPO/bash/deps/$1" "$HOME/.bash_includes/$1"
 	echo "Linked 'bash/deps/$1' into .bash_includes."
 }
 
 source_if_wsl() {
-	if [[ `uname -r` == *"microsoft"*  ]]; then
-		source $1
+	if [[ $(uname -r) == *"microsoft"* ]]; then
+		. "$1"
 	else
-		source $2
+		. "$2"
 	fi
 }
 
 source_if_ubuntu() {
-	if [[ `uname -v` == *"Ubuntu"* ]] && ! [[ `uname -r` == *"microsoft"* ]]; then
-		source $1
+	if [[ $(uname -v) == *"Ubuntu"* ]] && ! [[ $(uname -r) == *"microsoft"* ]]; then
+		. "$1"
 	else
-		source $2
+		. "$2"
 	fi
 }
 
 at_work() {
-	if [[ "`hostname -f`" == *"spacex.corp"* ]]; then
+	if [[ "$(hostname -f)" == *"spacex.corp"* ]]; then
 		return 0
 	fi
 	return 1
 }
 
 is_macos() {
-    if [[ `uname -v` == *"Darwin"* ]]; then
+    if [[ $(uname -v) == *"Darwin"* ]]; then
         return 0
     fi
     return 1
@@ -48,9 +52,9 @@ is_macos() {
 
 link_repo_rel_home_rel_check_work() {
 if at_work; then
-	link_repo_rel_home_rel work/$1 $2
+	link_repo_rel_home_rel "work/$1" "$2"
 else
-	link_repo_rel_home_rel $1 $2
+	link_repo_rel_home_rel "$1" "$2"
 fi
 }
 

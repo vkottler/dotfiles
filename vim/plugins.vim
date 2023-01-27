@@ -26,8 +26,10 @@ colo atom
 let g:airline#extensions#ale#enabled = 1
 
 " ale settings
+let g:ale_c_cc_executable = "gcc"
+let g:ale_cpp_cc_executable = "g++"
 let g:ale_linters = {
-\   'cpp': ['clangd'],
+\   'cpp': ['clangd', 'cc'],
 \   'python': ['flake8', 'mypy', 'pylint', 'pylsp'],
 \   'typescript': ['tsserver', 'eslint'],
 \}
