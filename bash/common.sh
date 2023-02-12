@@ -19,7 +19,7 @@ CMAKE_ARGS="-G Ninja -DCMAKE_INSTALL_PREFIX=$CMAKE_INSTALL_PREFIX"
 CMAKE_ARGS+=" -DCMAKE_BUILD_TYPE=Release"
 
 call_setup() {
-	"$SCRIPTS/setup_$1.sh"
+    "$SCRIPTS/setup_$1.sh"
 }
 
 set -e

@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 set -e
 
 HOME_BIN="$HOME/bin"
@@ -44,10 +44,10 @@ at_work() {
 }
 
 is_macos() {
-    if [[ $(uname -v) == *"Darwin"* ]]; then
-        return 0
-    fi
-    return 1
+	if [[ $(uname -v) == *"Darwin"* ]]; then
+		return 0
+	fi
+	return 1
 }
 
 link_repo_rel_home_rel_check_work() {
@@ -66,18 +66,18 @@ get_latest_release() {
 }
 
 attempt_ping() {
-	ping -c 1 $1 >/dev/null
+	ping -c 1 "$1" >/dev/null
 }
 
 add_file_to_remote() {
-	attempt_ping $1
+	attempt_ping "$1"
 
-	if ssh $USER@$1 stat $2 \> /dev/null 2\>\&1
+	if ssh "$USER@$1" stat "$2" \> /dev/null 2\>\&1
 	then
 		echo "'$2' exists on '$1', skipping"
 	else
-		printf "moving '%s' to '%s' ... " $2 $1
-		rsync -a --ignore-existing $2 $USER@$1:$2
+		printf "moving '%s' to '%s' ... " "$2" "$1"
+		rsync -a --ignore-existing "$2" "$USER@$1:$2"
 		echo "done"
 	fi
 }
@@ -85,11 +85,11 @@ add_file_to_remote() {
 THIRD_PARTY=$HOME/third-party
 
 clone_third_party_ssh() {
-	mkdir -p $THIRD_PARTY
-	pushd $THIRD_PARTY >/dev/null
+	mkdir -p "$THIRD_PARTY"
+	pushd "$THIRD_PARTY" >/dev/null
 
-	if [ ! -d $2 ]; then
-		git clone $3@$4:$1/$2.git
+	if [ ! -d "$2" ]; then
+		git clone "$3@$4:$1/$2.git"
 		echo "Cloned '$1/$2'."
 	else
 		echo "Not cloning '$1/$2', already present."
@@ -99,11 +99,11 @@ clone_third_party_ssh() {
 }
 
 clone_third_party_https() {
-	mkdir -p $THIRD_PARTY
-	pushd $THIRD_PARTY >/dev/null
+	mkdir -p "$THIRD_PARTY"
+	pushd "$THIRD_PARTY" >/dev/null
 
-	if [ ! -d $2 ]; then
-		git clone https://$1/$2.git
+	if [ ! -d "$2" ]; then
+		git clone "https://$1/$2.git"
 		echo "Cloned '$2'."
 	else
 		echo "Not cloning '$2', already present."
@@ -113,15 +113,15 @@ clone_third_party_https() {
 }
 
 clone_third_party_github() {
-	clone_third_party_ssh $1 $2 git github.com
+	clone_third_party_ssh "$1" "$2" git github.com
 }
 
 clone_third_party_git() {
-	mkdir -p $THIRD_PARTY
-	pushd $THIRD_PARTY >/dev/null
+	mkdir -p "$THIRD_PARTY"
+	pushd "$THIRD_PARTY" >/dev/null
 
-	if [ ! -d $2 ]; then
-		git clone git://$1/$2.git
+	if [ ! -d "$2" ]; then
+		git clone "git://$1/$2.git"
 		echo "Cloned '$2'."
 	else
 		echo "Not cloning '$2', already present."
@@ -131,53 +131,54 @@ clone_third_party_git() {
 }
 
 clone_third_party_gnu() {
-	clone_third_party_git git.savannah.gnu.org $1
+	clone_third_party_git git.savannah.gnu.org "$1"
 }
 
 clone_kernel_repo() {
-	clone_third_party_git git.kernel.org/pub/scm/$1 $2
+	clone_third_party_git "git.kernel.org/pub/scm/$1" "$2"
 }
 
 ensure_home_venv() {
 	if [ -z "$PYTHON_VERSION" ]; then
-		echo 'set $PYTHON_VERSION first'
+		echo "set \$PYTHON_VERSION first"
 		exit 1
 	fi
 
 	# Create the standard venv if necessary.
 	HOME_VENV=$HOME/venv$PYTHON_VERSION
-	if [ ! -d $HOME_VENV ]; then
-		python$PYTHON_VERSION -m venv $HOME_VENV
-		$HOME_VENV/bin/python -m pip install wheel
+	if [ ! -d "$HOME_VENV" ]; then
+		"python$PYTHON_VERSION" -m venv "$HOME_VENV"
+		"$HOME_VENV/bin/python" -m pip install wheel
 	fi
 
 	# Create a symlink for convenience (i.e. adding to path).
-	rm -f $HOME/venv
-	ln -s $HOME/venv$PYTHON_VERSION $HOME/venv
+	rm -f "$HOME/venv"
+	ln -s "$HOME/venv$PYTHON_VERSION" "$HOME/venv"
 
 	# Set useful variables.
 	HOME_PYTHON="$HOME_VENV/bin/python"
 	HOME_PIP="$HOME_PYTHON -m pip"
+	test "$HOME_PIP"
 }
 
 get_gnu_release() {
-	pushd $THIRD_PARTY >/dev/null
+	pushd "$THIRD_PARTY" >/dev/null
 
 	# Download an archive if one isn't present.
-	if [ ! -f $1-$2.tar.gz ]; then
-		wget https://ftp.gnu.org/gnu/$1/$1-$2.tar.gz
+	if [ ! -f "$1-$2.tar.gz" ]; then
+		wget "https://ftp.gnu.org/gnu/$1/$1-$2.tar.gz"
 	fi
 
 	# Unpack it.
-	if [ ! -d $1-$2 ]; then
-		tar xvf $1-$2.tar.gz
+	if [ ! -d "$1-$2" ]; then
+		tar xvf "$1-$2.tar.gz"
 	fi
 
 	popd >/dev/null
 }
 
 exit_if_command() {
-	if command -v $1 >/dev/null; then
+	if command -v "$1" >/dev/null; then
 		echo "Command '$1' found, exiting early."
 		exit 0
 	fi

@@ -30,17 +30,17 @@ fi
 
 # load external syntax files
 mkdir -p "$HOME/.vim/syntax"
-pushd "$HOME/.vim/syntax" >/dev/null
+pushd "$HOME/.vim/syntax" >/dev/null || exit
 
 for SYNTAX_FILE in jinja.vim htmljinja.vim
 do
 	test -f $SYNTAX_FILE && rm $SYNTAX_FILE
-	test -L $SYNTAX_FILE || ln -s "$REPO/third-party/vim/$SYNTAX_FILE"
+	test -L $SYNTAX_FILE || ln -s "$REPO/third-party/vim/$SYNTAX_FILE" .
 done
 
 test -L j2.vim || ln -s jinja.vim j2.vim
 
-popd >/dev/null
+popd >/dev/null || exit
 
 link_repo_rel_home_rel .tmux.conf .tmux.conf
 
