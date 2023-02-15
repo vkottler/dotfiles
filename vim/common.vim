@@ -65,6 +65,7 @@ augroup indent_settings
     au FileType jinja setlocal ts=2 sts=2 sw=2 expandtab
     au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
     au FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
     au FileType bzl setlocal ts=4 sts=4 sw=4 expandtab
     au FileType c setlocal ts=4 sts=4 sw=4 expandtab
     au FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
