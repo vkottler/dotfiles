@@ -8,8 +8,8 @@ source $CWD/common.sh
 LEVEL=mirror
 FS=ext4
 
-DRIVE_1=sdd1
-DRIVE_2=sde1
+DRIVE_1=sdb
+DRIVE_2=sdc
 
 sudo mdadm \
 	--create $DEST \
