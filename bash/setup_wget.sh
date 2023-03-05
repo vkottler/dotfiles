@@ -1,11 +1,13 @@
 #!/bin/bash
 
-REPO=`git rev-parse --show-toplevel`
-source $REPO/bash/common.sh
+REPO=$(git rev-parse --show-toplevel)
+source "$REPO/bash/common.sh"
 
-clone_third_party_gnu wget
+PROJECT=wget
 
-pushd $THIRD_PARTY/wget >/dev/null
+clone_third_party_gnu $PROJECT
+
+pushd "$THIRD_PARTY/$PROJECT" >/dev/null
 
 # Not implemented yet.
 

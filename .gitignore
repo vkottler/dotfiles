@@ -10,4 +10,6 @@ bash/bin/_drawio
 bash/bin/drawio
 bash/bin/draw
 
+bash/bash
+
 bash/.bash_includes/*.sh

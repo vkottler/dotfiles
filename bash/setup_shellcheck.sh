@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO=$(git rev-parse --show-toplevel)
-source $REPO/bash/common.sh
+source "$REPO/bash/common.sh"
 
 PROJECT=shellcheck
 exit_if_command $PROJECT
