@@ -1,16 +1,16 @@
 #!/bin/bash
-
+#
 REPO=$(git rev-parse --show-toplevel)
 source "$REPO/bash/common.sh"
 
-PROJECT=asciidoc
+PROJECT=youtube-dl
 exit_if_command $PROJECT
 
 call_setup python
 
-clone_third_party_github $PROJECT-py $PROJECT-py
+clone_third_party_github ytdl-org $PROJECT
 
-pushd "$THIRD_PARTY/$PROJECT-py" >/dev/null
+pushd "$THIRD_PARTY/$PROJECT" >/dev/null
 
 # Install editable in our home venv.
 ensure_home_venv
