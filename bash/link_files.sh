@@ -42,6 +42,17 @@ test -L j2.vim || ln -s jinja.vim j2.vim
 
 popd >/dev/null || exit
 
+# neovim config
+NVIM_CONFIG=$HOME/.config/nvim
+mkdir -p "$NVIM_CONFIG"
+pushd "$NVIM_CONFIG" >/dev/null
+
+if ! [ -L init.vim ]; then
+    ln -s "$REPO/init.vim" .
+fi
+
+popd >/dev/null
+
 link_repo_rel_home_rel .tmux.conf .tmux.conf
 
 link_repo_rel_home_rel bash/.profile .profile
