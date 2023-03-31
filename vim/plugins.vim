@@ -46,6 +46,9 @@ let g:ale_python_black_options = line_length
 let g:ale_python_isort_options = line_length . ' --profile black --fss -m 3'
 let g:ale_fix_on_save = 1
 
+" Add a command for enabling/disabling fixing.
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+
 " We could format on save, but I find that it can hang when you save knowing
 " something is already wrong.
 let g:rustfmt_autosave = 0
