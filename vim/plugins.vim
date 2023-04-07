@@ -30,7 +30,7 @@ let g:ale_c_cc_executable = "gcc"
 let g:ale_cpp_cc_executable = "g++"
 let g:ale_linters = {
 \   'cpp': ['clangd', 'cc'],
-\   'python': ['flake8', 'mypy', 'pylint', 'pylsp'],
+\   'python': ['ruff', 'flake8', 'mypy', 'pylint', 'pylsp'],
 \   'typescript': ['tsserver', 'eslint'],
 \}
 let g:ale_fixers = {

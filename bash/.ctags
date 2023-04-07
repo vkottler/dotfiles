@@ -15,3 +15,6 @@
 --exclude=*.ini
 --exclude=*.ini
 --exclude=venv*
+--exclude=tests/data
+--exclude=htmlcov
+--exclude=@.gitignore
