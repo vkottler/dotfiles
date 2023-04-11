@@ -1,0 +1,8 @@
+server.jar
+libraries
+logs
+versions
+world
+*.json
+eula.txt
+server.properties
