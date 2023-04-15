@@ -32,6 +32,7 @@ let g:ale_linters = {
 \   'cpp': ['clangd', 'cc'],
 \   'python': ['ruff', 'flake8', 'mypy', 'pylint', 'pylsp'],
 \   'typescript': ['tsserver', 'eslint'],
+\   'lua': ['cspell', 'luacheck'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -39,6 +40,7 @@ let g:ale_fixers = {
 \   'python': ['isort', 'black'],
 \   'typescript': ['prettier', 'eslint'],
 \   'html': ['prettier'],
+\   'lua': ['stylua'],
 \}
 let g:ale_python_pylsp_config = {}
 let line_length = '--line-length 79'
