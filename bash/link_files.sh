@@ -56,7 +56,6 @@ popd >/dev/null
 link_repo_rel_home_rel .tmux.conf .tmux.conf
 
 link_repo_rel_home_rel bash/.profile .profile
-link_repo_rel_home_rel bash/.bash_aliases .bash_aliases
 link_repo_rel_home_rel bash/.bashrc .bashrc
 link_repo_rel_home_rel bash/.gdbinit .gdbinit
 
@@ -75,6 +74,7 @@ link_repo_rel_home_rel bash/.bash_includes .bash_includes
 link_dep ubuntu_standard.sh
 link_dep xdg.sh
 link_dep editor.sh
+link_dep aliases.sh
 
 if is_macos; then
     link_dep homebrew.sh
@@ -82,16 +82,10 @@ fi
 
 link_dep paths.sh
 
-# load new configurations
-source "$HOME/.bashrc"
-
 LINK_DIR=$REPO/bash/links
 
 # add wsl if it makes sense to
 source_if_wsl "$LINK_DIR/link_wsl.sh" "$LINK_DIR/link_not_wsl.sh"
-
-# load new configurations
-source "$HOME/.bashrc"
 
 # ubuntu-specific operations
 source_if_ubuntu "$LINK_DIR/link_ubuntu.sh" "$LINK_DIR/noop.sh"

@@ -1,13 +1,13 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
+	if [ -s "$HOME/.bashrc" ]; then
 		. "$HOME/.bashrc"
 	fi
 fi
 
 # source a profile in .local if one exists
-if [ -f "$HOME/.local/.profile" ]; then
+if [ -s "$HOME/.local/.profile" ]; then
 	. "$HOME/.local/.profile"
 fi
 
